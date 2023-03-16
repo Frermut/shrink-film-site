@@ -30,14 +30,18 @@ nav li a.active{
 .navbar-brand{
     font-size: 26px;
 }
-
+/* button:focus {
+    background-color: #0a58ca !important;
+} */
 button:focus:not(:focus-visible) {
     box-shadow: none !important;
     
     /* background-color: #0a58ca !important; */
 }
 
-
+.active_btn {
+    background-color: #0a58ca !important;
+}
 
 
 input[type=button]:hover,
