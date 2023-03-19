@@ -17,7 +17,7 @@ document.querySelector(".micronWrapper").addEventListener("click", event => {
             lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="750 м">`;
         
             countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
-                                    <input type='text' class='form-control halftubeCount' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
+                                    <input type='text' class='form-control halftubeCount halftubeCountPVX' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
         } 
 
         if (event.target.value == "19 мкм") {
@@ -31,7 +31,7 @@ document.querySelector(".micronWrapper").addEventListener("click", event => {
             lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="630 м">`;
 
             countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
         }
 
         if (event.target.value == "25 мкм") {
@@ -45,7 +45,7 @@ document.querySelector(".micronWrapper").addEventListener("click", event => {
             lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="480 м">`;
 
             countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
         }
     }
 });
@@ -68,7 +68,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
             lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="1000 м">`;
         
             countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
-                                    <input type='text' class='form-control halftubeCount' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
+                                    <input type='text' class='form-control halftubeCount halftubeCountPOF' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
         } 
         if (event.target.value == "15 мкм") {
             widthWrapper.innerHTML = `
@@ -87,7 +87,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
                 <input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="1250 м">`;
         
             countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
-                                    <input type='text' class='form-control halftubeCount' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
+                                    <input type='text' class='form-control halftubeCount halftubeCountPOF' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
         } 
 
         // let isConditionMet19 = false;
@@ -108,7 +108,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
                 <input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="1000 м">`;
 
             countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPOF" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
         }
 
 
@@ -122,7 +122,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
                 <input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="800 м">`;
 
             countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPOF" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
         }
 
 
@@ -153,7 +153,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
                     <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPOF" value="550 мм">
                     `;
                     countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPOF" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
                     
                 }
                 if (e.target.value == "600 м") {
@@ -164,7 +164,7 @@ document.querySelector(".micronWrapperPOF").addEventListener("click", event => {
                     <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPOF" value="500 мм">
                     `;
                     countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                                    <input type="text" class="form-control halftubeCount halftubeCountPOF" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
                     
                 } 
             }
