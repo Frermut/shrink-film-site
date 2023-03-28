@@ -51,12 +51,16 @@ function calcPvx() {
     };
 
     document.querySelector("#accordionPVX").addEventListener("click", event => {
-   
-        if (event.target.matches("input.halftubeThickness")) {    
+        if (event.target.matches("input.formPVX")) {   
+            document.querySelector("#resultFormPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+        } else if (event.target.matches("input.halftubeThickness")) { 
+            document.querySelector("#resultMicronPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value
         } else if (event.target.matches("input.halftubeWidth")) {
+            document.querySelector("#resultHalftubeWidthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.width = event.target.value
         } else if (event.target.matches("input.halftubeLength")) {
+            document.querySelector("#resultHalftubeLengthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
         } else if (event.target.matches("input.halftube")) {
             halftube.shape = event.target.value
@@ -66,6 +70,7 @@ function calcPvx() {
     });
 
     document.querySelector("#accordionPVX").addEventListener("input", () => {
+        document.querySelector("#resultHalftubeCountPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVX").value}`; 
         halftube.halftubeCount = document.querySelector(".halftubeCountPVX").value;
     });
 
@@ -76,6 +81,7 @@ function calcPvx() {
         let costTape = 0;
 
         if (document.querySelector("input.halftubeCount").value >= 5)  {
+            
             if (onlyNumbers(halftube.thickness) == 15) {
                 costTape = halftube.cost * ratio["5"] * weight_15[onlyNumbers(halftube.width)];  
                 weight = weight_15[onlyNumbers(halftube.width)]; 
@@ -91,6 +97,7 @@ function calcPvx() {
         }
 
         if (document.querySelector("input.halftubeCount").value <= 4) {
+            document.querySelector("#resultHalftubeCountPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             if (onlyNumbers(halftube.thickness) == 15) {
                 costTape = halftube.cost * ratio["1-4"] * weight_15[onlyNumbers(halftube.width)];  
                 weight = weight_15[onlyNumbers(halftube.width)]; 
@@ -107,11 +114,11 @@ function calcPvx() {
         } 
         
         let markup = `
-            <div class="col-6">
-                <p>Стоймость за рулон: <span>${costTape / weight }</span>руб.</p>
+            <div class="col-12">
+                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
             </div>
-            <div class="col-6">
-                <p>Стоймость плёнки: <span>${costTape * onlyNumbers(halftube.halftubeCount)}</span>руб.</p>
+            <div class="col-12">
+                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
             </div>
             `;
 
@@ -215,14 +222,19 @@ function calcPOF() {
     };
 
     document.querySelector("#accordionPOF").addEventListener("click", event => {
-   
-        if (event.target.matches("input.halftubeThickness")) {    
+        if (event.target.matches("input.formPof")) {   
+            document.querySelector("#resultFormPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+        } else if (event.target.matches("input.halftubeThickness")) {    
+            document.querySelector("#resultMicronPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value 
         } else if (event.target.matches("input.halftubeWidth")) {
+            document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.width = event.target.value
         } else if (event.target.matches("input.halftubeLength")) {
+            document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
         } else if (event.target.matches("input.halftube")) {
+            
             halftube.shape = event.target.value
         }
 
@@ -234,6 +246,8 @@ function calcPOF() {
     });
 
     document.querySelector("#accordionPOF").addEventListener("input", () => {
+        document.querySelector("#resultHalftubeCountPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPOF").value}`; 
+
         halftube.halftubeCount = document.querySelector(".halftubeCountPOF").value;
     });
 
@@ -357,11 +371,11 @@ function calcPOF() {
         } 
         
         let markup = `
-            <div class="col-6">
-                <p>Стоймость за рулон: <span>${costTape / weight }</span>руб.</p>
+            <div class="col-12">
+                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
             </div>
-            <div class="col-6">
-                <p>Стоймость плёнки: <span>${costTape * onlyNumbers(halftube.halftubeCount)}</span>руб.</p>
+            <div class="col-12">
+                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
             </div>
             `;
 
