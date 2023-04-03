@@ -114,6 +114,12 @@ input {
     
 }
 
+.list-group-item {
+    border-color:#525456 !important;
+    color: rgba(255, 255, 255, 0.800) !important;
+    background-color: #212224 !important;
+}
+
 span.input-group-text {
     border-color: #212224 !important;
     color: rgba(255, 255, 255, 0.800) !important;

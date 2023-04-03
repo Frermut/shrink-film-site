@@ -53,6 +53,7 @@ function calcPvx() {
     document.querySelector("#accordionPVX").addEventListener("click", event => {
         if (event.target.matches("input.formPVX")) {   
             document.querySelector("#resultFormPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.shape = event.target.value
         } else if (event.target.matches("input.halftubeThickness")) { 
             document.querySelector("#resultMicronPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value
@@ -62,11 +63,8 @@ function calcPvx() {
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
-        } else if (event.target.matches("input.halftube")) {
-            halftube.shape = event.target.value
         }
 
-        console.log(halftube);
     });
 
     document.querySelector("#accordionPVX").addEventListener("input", () => {
@@ -114,12 +112,56 @@ function calcPvx() {
         } 
         
         let markup = `
-            <div class="col-12">
-                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
-            </div>
-            <div class="col-12">
-                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
-            </div>
+        <div class="d-flex row justify-content-center gap-3">
+        <div class="col-lg col-md-12">
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Форма плёнки:</li>
+            <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Толщина пленки:</li>
+            <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Длина пленки:</li>
+            <li class="list-group-item w-25">${halftube.length}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Ширина пленки:</li>
+            <li class="list-group-item w-25">${halftube.width}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Количество рулонов:</li>
+            <li class="list-group-item w-25">${halftube.halftubeCount}</li>
+          </ul>
+        </div>
+        
+        <div class="col-lg col-md-12">
+          <div class="row">
+            <form action="" class="">
+              <div class="row ">
+                <div class="col-md-12 col-lg">
+                  <div class="input-group mb-3 w-100">
+                    <span class="input-group-text" id="basic-addon1">Имя</span>
+                    <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">Email</span>
+                    <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="row">
+              <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
+              <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
+          </div>
+          
+        </div>
+      </div>
             `;
 
             document.querySelector(".PVX-TBody").innerHTML = markup;
@@ -224,6 +266,7 @@ function calcPOF() {
     document.querySelector("#accordionPOF").addEventListener("click", event => {
         if (event.target.matches("input.formPof")) {   
             document.querySelector("#resultFormPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.shape = event.target.value 
         } else if (event.target.matches("input.halftubeThickness")) {    
             document.querySelector("#resultMicronPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value 
@@ -233,13 +276,10 @@ function calcPOF() {
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
-        } else if (event.target.matches("input.halftube")) {
-            
-            halftube.shape = event.target.value
         }
 
         
-        console.log(halftube);
+        
 
 
         
@@ -256,7 +296,7 @@ function calcPOF() {
     function render() {
         let weight = 0;
         let costTape = 0;
-
+        console.log(halftube);
         if (document.querySelector("input.halftubeCount").value >= 5)  {
 
             if (onlyNumbers(halftube.length) == 1000) {
@@ -371,12 +411,56 @@ function calcPOF() {
         } 
         
         let markup = `
-            <div class="col-12">
-                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
-            </div>
-            <div class="col-12">
-                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
-            </div>
+            <div class="d-flex row justify-content-center gap-3">
+                          <div class="col-lg col-md-12">
+                            <ul class="list-group list-group-horizontal w-100">
+                              <li class="list-group-item w-75">Форма плёнки:</li>
+                              <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal w-100">
+                              <li class="list-group-item w-75">Толщина пленки:</li>
+                              <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal w-100">
+                              <li class="list-group-item w-75">Длина пленки:</li>
+                              <li class="list-group-item w-25">${halftube.length}</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal w-100">
+                              <li class="list-group-item w-75">Ширина пленки:</li>
+                              <li class="list-group-item w-25">${halftube.width}</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal w-100">
+                              <li class="list-group-item w-75">Количество рулонов:</li>
+                              <li class="list-group-item w-25">${halftube.halftubeCount}</li>
+                            </ul>
+                          </div>
+                          
+                          <div class="col-lg col-md-12">
+                            <div class="row">
+                              <form action="" class="">
+                                <div class="row ">
+                                  <div class="col-md-12 col-lg">
+                                    <div class="input-group mb-3 w-100">
+                                      <span class="input-group-text" id="basic-addon1">Имя</span>
+                                      <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    
+                                    <div class="input-group mb-3">
+                                      <span class="input-group-text" id="basic-addon2">Email</span>
+                                      <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            
+                            <div class="row">
+                                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
+                                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
+                            </div>
+                            
+                          </div>
+                        </div>
             `;
 
             document.querySelector(".POF-body").innerHTML = markup;
