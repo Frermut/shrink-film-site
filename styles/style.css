@@ -43,6 +43,13 @@ button:focus:not(:focus-visible) {
     background-color: #0a58ca !important;
 }
 
+.card {
+    border-color: #0e0e10 !important;
+}
+
+.card > img {
+    border-radius: 4px;
+}
 
 input[type=button]:hover,
 input[type=button]:active,
