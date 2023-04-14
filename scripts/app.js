@@ -6,9 +6,26 @@ function onlyNumbers (str){
 	var NumbersStr = NumbersArr.replace( /,/g, "" ); //убираем запятую
 
 	return +NumbersStr;
-	
 };
 
+function clear(halftube,cost,type,num = 1) {
+    document.querySelector(`#resultForm${type}`).innerHTML = "";
+    document.querySelector(`#resultMicron${type}`).innerHTML = ""
+    document.querySelector(`#resultHalftubeWidth${type}`).innerHTML = "";
+    document.querySelector(`#resultHalftubeLength${type}`).innerHTML = "";
+    document.querySelector(`#resultHalftubeCount${type}`).innerHTML = "";
+    document.querySelector(`#resultHalftubeWidth${type}`).innerHTML = "";
+
+    halftube.shape = "";
+    halftube.thickness = "";
+    halftube.width = "";
+    halftube.length = "";
+    halftube.halftubeCount = num;
+    halftube.cost = cost;
+
+
+      console.log(halftube);
+}
 
 function calcPvx() {
     let ratio = {
@@ -51,7 +68,8 @@ function calcPvx() {
     };
 
     document.querySelector("#accordionPVX").addEventListener("click", event => {
-        if (event.target.matches("input.formPVX")) {   
+        if (event.target.matches("input.formPVX")) { 
+            clear(halftube,halftube.cost, "PVX");  
             document.querySelector("#resultFormPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.shape = event.target.value
         } else if (event.target.matches("input.halftubeThickness")) { 
@@ -269,150 +287,182 @@ function calcPOF() {
 
     document.querySelector("#accordionPOF").addEventListener("click", event => {
         if (event.target.matches("input.formPof")) {   
+            clear(halftube,halftube.cost, "POF");
             document.querySelector("#resultFormPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.shape = event.target.value 
         } else if (event.target.matches("input.halftubeThickness")) {    
+            
             document.querySelector("#resultMicronPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value 
         } else if (event.target.matches("input.halftubeWidth")) {
+            
             document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.width = event.target.value
         } else if (event.target.matches("input.halftubeLength")) {
+            
             document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
         }
-
-        
-        
-
-
-        
+ 
     });
 
     document.querySelector("#accordionPOF").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPOF").value}`; 
-
         halftube.halftubeCount = document.querySelector(".halftubeCountPOF").value;
+
+        document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPOFinput").value}`; 
+        halftube.width = document.querySelector(".halftubeWidthPOFinput").value;
+        
+        document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeLengthPOFinput").value}`; 
+        halftube.length = document.querySelector(".halftubeLengthPOFinput").value + "м";
     });
+
+
 
     document.querySelector(".POF").addEventListener("click", render)
 
     function render() {
         let weight = 0;
         let costTape = 0;
-        console.log(halftube);
-        if (document.querySelector("input.halftubeCount").value >= 5)  {
-
-            if (onlyNumbers(halftube.length) == 1000) {
-                if (onlyNumbers(halftube.thickness) == 125) {
-                    costTape = halftube.cost * ratio["5"] * weight_12_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_12_1000[onlyNumbers(halftube.width)]; 
-                }
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["5"] * weight_19_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_19_1000[onlyNumbers(halftube.width)]; 
-                }
-            }
-
-            if (onlyNumbers(halftube.length) == 750) {
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["5"] * weight_15_750[onlyNumbers(halftube.width)];  
-                    weight = weight_15_750[onlyNumbers(halftube.width)]; 
-                }
-            }
-            if (onlyNumbers(halftube.length) == 1250) { 
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["5"] * weight_15_1250[onlyNumbers(halftube.width)];  
-                    weight = weight_15_1250[onlyNumbers(halftube.width)]; 
-                }
-            }
-
-            if (onlyNumbers(halftube.length) == 650) {
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["5"] * weight_19_650[onlyNumbers(halftube.width)];  
-                    weight = weight_19_650[onlyNumbers(halftube.width)]; 
-                }
-            }
+        let resultKilo;
+        let resultOrder;
+        if (halftube.shape == "Полурукав") {
             
-            if (onlyNumbers(halftube.length) == 800) {
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["5"] * weight_25_800[onlyNumbers(halftube.width)];  
-                    weight = weight_25_800[onlyNumbers(halftube.width)]; 
-                }
-                if (onlyNumbers(halftube.thickness) == 235) {
-                    costTape = halftube.cost * ratio["5"] * weight_23_800[onlyNumbers(halftube.width)];  
-                    weight = weight_23_800[onlyNumbers(halftube.width)]; 
-                }
-            }
+            if (document.querySelector("input.halftubeCount").value >= 5)  {
 
-            if (onlyNumbers(halftube.length) == 600) {
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["5"] * weight_25_600[onlyNumbers(halftube.width)];  
-                    weight = weight_25_600[onlyNumbers(halftube.width)]; 
+                if (onlyNumbers(halftube.length) == 1000) {
+                    if (onlyNumbers(halftube.thickness) == 125) {
+                        costTape = halftube.cost * ratio["5"] * weight_12_1000[onlyNumbers(halftube.width)];  
+                        weight = weight_12_1000[onlyNumbers(halftube.width)]; 
+                    }
+                    if (onlyNumbers(halftube.thickness) == 19) {
+                        costTape = halftube.cost * ratio["5"] * weight_19_1000[onlyNumbers(halftube.width)];  
+                        weight = weight_19_1000[onlyNumbers(halftube.width)]; 
+                    }
                 }
+    
+                if (onlyNumbers(halftube.length) == 750) {
+                    if (onlyNumbers(halftube.thickness) == 15) {
+                        costTape = halftube.cost * ratio["5"] * weight_15_750[onlyNumbers(halftube.width)];  
+                        weight = weight_15_750[onlyNumbers(halftube.width)]; 
+                    }
+                }
+                if (onlyNumbers(halftube.length) == 1250) { 
+                    if (onlyNumbers(halftube.thickness) == 15) {
+                        costTape = halftube.cost * ratio["5"] * weight_15_1250[onlyNumbers(halftube.width)];  
+                        weight = weight_15_1250[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length) == 650) {
+                    if (onlyNumbers(halftube.thickness) == 19) {
+                        costTape = halftube.cost * ratio["5"] * weight_19_650[onlyNumbers(halftube.width)];  
+                        weight = weight_19_650[onlyNumbers(halftube.width)]; 
+                    }
+                }
+                
+                if (onlyNumbers(halftube.length) == 800) {
+                    if (onlyNumbers(halftube.thickness) == 25) {
+                        costTape = halftube.cost * ratio["5"] * weight_25_800[onlyNumbers(halftube.width)];  
+                        weight = weight_25_800[onlyNumbers(halftube.width)]; 
+                    }
+                    if (onlyNumbers(halftube.thickness) == 235) {
+                        costTape = halftube.cost * ratio["5"] * weight_23_800[onlyNumbers(halftube.width)];  
+                        weight = weight_23_800[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length) == 600) {
+                    if (onlyNumbers(halftube.thickness) == 25) {
+                        costTape = halftube.cost * ratio["5"] * weight_25_600[onlyNumbers(halftube.width)];  
+                        weight = weight_25_600[onlyNumbers(halftube.width)]; 
+                    }
+                } 
+    
+                
+                
+                
+            }
+    
+            if (document.querySelector("input.halftubeCount").value <= 4) {
+                if (onlyNumbers(halftube.length) == 1000) {
+                    if (onlyNumbers(halftube.thickness) == 125) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_12_1000[onlyNumbers(halftube.width)];  
+                        weight = weight_12_1000[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length) == 750) {
+                    if (onlyNumbers(halftube.thickness) == 15) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_15_750[onlyNumbers(halftube.width)];  
+                        weight = weight_15_750[onlyNumbers(halftube.width)]; 
+                    }
+                } 
+    
+                if (onlyNumbers(halftube.length) == 1250) { 
+                    if (onlyNumbers(halftube.thickness) == 15) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_15_1250[onlyNumbers(halftube.width)];  
+                        weight = weight_15_1250[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length) == 650) {
+                    if (onlyNumbers(halftube.thickness) == 19) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_19_650[onlyNumbers(halftube.width)];  
+                        weight = weight_19_650[onlyNumbers(halftube.width)]; 
+                    }
+                } 
+    
+                if (onlyNumbers(halftube.length) == 1000) {
+                    if (onlyNumbers(halftube.thickness) == 19) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_19_1000[onlyNumbers(halftube.width)];  
+                        weight = weight_19_1000[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length)== 800) {
+                    if (onlyNumbers(halftube.thickness) == 235) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_23_800[onlyNumbers(halftube.width)];  
+                        weight = weight_23_800[onlyNumbers(halftube.width)]; 
+                    }
+                    if (onlyNumbers(halftube.thickness) == 25) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_25_800[onlyNumbers(halftube.width)];  
+                        weight = weight_25_800[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                if (onlyNumbers(halftube.length) == 600) {
+                    if (onlyNumbers(halftube.thickness) == 25) {
+                        costTape = halftube.cost * ratio["1-4"] * weight_25_600[onlyNumbers(halftube.width)];  
+                        weight = weight_25_600[onlyNumbers(halftube.width)]; 
+                    }
+                }
+    
+                            
             } 
 
-            
-            
+           
+
+           
+                resultKilo = (costTape / weight).toFixed(2) + "руб.";
+                resultOrder = (costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)+ "руб.";
             
         }
-
-        if (document.querySelector("input.halftubeCount").value <= 4) {
-            if (onlyNumbers(halftube.length) == 1000) {
-                if (onlyNumbers(halftube.thickness) == 125) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_12_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_12_1000[onlyNumbers(halftube.width)]; 
-                }
+        
+        if (halftube.shape == "Рукав" || halftube.shape == "Полотно") {
+            if (halftube.width < 150) {
+                halftube.width = 150 + "мм";
+            } else {
+                halftube.width = halftube.width + "мм";
             }
+            resultKilo = "Цена по запросу";  
+            resultOrder = "Цена по запросу"; 
+        }
 
-            if (onlyNumbers(halftube.length) == 750) {
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_15_750[onlyNumbers(halftube.width)];  
-                    weight = weight_15_750[onlyNumbers(halftube.width)]; 
-                }
-            } 
+        
 
-            if (onlyNumbers(halftube.length) == 1250) { 
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_15_1250[onlyNumbers(halftube.width)];  
-                    weight = weight_15_1250[onlyNumbers(halftube.width)]; 
-                }
-            }
+        
 
-            if (onlyNumbers(halftube.length) == 650) {
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_19_650[onlyNumbers(halftube.width)];  
-                    weight = weight_19_650[onlyNumbers(halftube.width)]; 
-                }
-            } 
-
-            if (onlyNumbers(halftube.length) == 1000) {
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_19_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_19_1000[onlyNumbers(halftube.width)]; 
-                }
-            }
-
-            if (onlyNumbers(halftube.length)== 800) {
-                if (onlyNumbers(halftube.thickness) == 235) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_23_800[onlyNumbers(halftube.width)];  
-                    weight = weight_23_800[onlyNumbers(halftube.width)]; 
-                }
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_25_800[onlyNumbers(halftube.width)];  
-                    weight = weight_25_800[onlyNumbers(halftube.width)]; 
-                }
-            }
-
-            if (onlyNumbers(halftube.length) == 600) {
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["1-4"] * weight_25_600[onlyNumbers(halftube.width)];  
-                    weight = weight_25_600[onlyNumbers(halftube.width)]; 
-                }
-            }
-
-                        
-        } 
         
         let markup = `
             <div class="d-flex row justify-content-center gap-3">
@@ -463,8 +513,8 @@ function calcPOF() {
                             </div>
                             
                             <div class="row">
-                                <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
-                                <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
+                                <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
+                                <p>Стоймость заказа: <span>${resultOrder}</span></p>
                             </div>
                             
                           </div>
@@ -571,7 +621,8 @@ function calcPOFperf() {
     };
 
     document.querySelector("#accordionPOFperf").addEventListener("click", event => {
-        if (event.target.matches("input.formPOFperf")) {   
+        if (event.target.matches("input.formPOFperf")) {  
+            clear(halftube,halftube.cost, "POFperf",10); 
             document.querySelector("#resultFormPOFperf").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.shape = event.target.value 
         } else if (event.target.matches("input.halftubeThickness")) {    
@@ -585,17 +636,17 @@ function calcPOFperf() {
             halftube.length = event.target.value
         }
 
-        
-        
-
-
-        
     });
 
     document.querySelector("#accordionPOFperf").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPOFperf").value}`; 
-
         halftube.halftubeCount = document.querySelector(".halftubeCountPOFperf").value;
+    
+        document.querySelector("#resultHalftubeWidthPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPOFperfinput").value}`; 
+        halftube.width = document.querySelector(".halftubeWidthPOFperfinput").value;
+        
+        document.querySelector("#resultHalftubeLengthPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeLengthPOFperfinput").value}`; 
+        halftube.length = document.querySelector(".halftubeLengthPOFperfinput").value + "м";
     });
 
     document.querySelector(".POFperf").addEventListener("click", render)
@@ -603,61 +654,78 @@ function calcPOFperf() {
     function render() {
         let weight = 0;
         let costTape = 0;
+        let resultKilo;
+        let resultOrder;
         console.log(halftube);
-        if (document.querySelector("input.halftubeCount").value >= 10)  {
+        if (halftube.shape == "Полурукав") {
+            if (document.querySelector("input.halftubeCount").value >= 10)  {
 
-            if (onlyNumbers(halftube.length) == 1000) {
-                if (onlyNumbers(halftube.thickness) == 125) {
-                    costTape = halftube.cost * ratio["5"] * weight_12_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_12_1000[onlyNumbers(halftube.width)]; 
-                }
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["5"] * weight_19_1000[onlyNumbers(halftube.width)];  
-                    weight = weight_19_1000[onlyNumbers(halftube.width)]; 
-                }
-            }
+                        if (onlyNumbers(halftube.length) == 1000) {
+                            if (onlyNumbers(halftube.thickness) == 125) {
+                                costTape = halftube.cost * ratio["5"] * weight_12_1000[onlyNumbers(halftube.width)];  
+                                weight = weight_12_1000[onlyNumbers(halftube.width)]; 
+                            }
+                            if (onlyNumbers(halftube.thickness) == 19) {
+                                costTape = halftube.cost * ratio["5"] * weight_19_1000[onlyNumbers(halftube.width)];  
+                                weight = weight_19_1000[onlyNumbers(halftube.width)]; 
+                            }
+                        }
 
-            if (onlyNumbers(halftube.length) == 750) {
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["5"] * weight_15_750[onlyNumbers(halftube.width)];  
-                    weight = weight_15_750[onlyNumbers(halftube.width)]; 
-                }
-            }
-            if (onlyNumbers(halftube.length) == 1250) { 
-                if (onlyNumbers(halftube.thickness) == 15) {
-                    costTape = halftube.cost * ratio["5"] * weight_15_1250[onlyNumbers(halftube.width)];  
-                    weight = weight_15_1250[onlyNumbers(halftube.width)]; 
-                }
-            }
+                        if (onlyNumbers(halftube.length) == 750) {
+                            if (onlyNumbers(halftube.thickness) == 15) {
+                                costTape = halftube.cost * ratio["5"] * weight_15_750[onlyNumbers(halftube.width)];  
+                                weight = weight_15_750[onlyNumbers(halftube.width)]; 
+                            }
+                        }
+                        if (onlyNumbers(halftube.length) == 1250) { 
+                            if (onlyNumbers(halftube.thickness) == 15) {
+                                costTape = halftube.cost * ratio["5"] * weight_15_1250[onlyNumbers(halftube.width)];  
+                                weight = weight_15_1250[onlyNumbers(halftube.width)]; 
+                            }
+                        }
 
-            if (onlyNumbers(halftube.length) == 650) {
-                if (onlyNumbers(halftube.thickness) == 19) {
-                    costTape = halftube.cost * ratio["5"] * weight_19_650[onlyNumbers(halftube.width)];  
-                    weight = weight_19_650[onlyNumbers(halftube.width)]; 
-                }
+                        if (onlyNumbers(halftube.length) == 650) {
+                            if (onlyNumbers(halftube.thickness) == 19) {
+                                costTape = halftube.cost * ratio["5"] * weight_19_650[onlyNumbers(halftube.width)];  
+                                weight = weight_19_650[onlyNumbers(halftube.width)]; 
+                            }
+                        }
+                        
+                        if (onlyNumbers(halftube.length) == 800) {
+                            if (onlyNumbers(halftube.thickness) == 25) {
+                                costTape = halftube.cost * ratio["5"] * weight_25_800[onlyNumbers(halftube.width)];  
+                                weight = weight_25_800[onlyNumbers(halftube.width)]; 
+                            }
+                            if (onlyNumbers(halftube.thickness) == 235) {
+                                costTape = halftube.cost * ratio["5"] * weight_23_800[onlyNumbers(halftube.width)];  
+                                weight = weight_23_800[onlyNumbers(halftube.width)]; 
+                            }
+                        }
+
+                        if (onlyNumbers(halftube.length) == 600) {
+                            if (onlyNumbers(halftube.thickness) == 25) {
+                                costTape = halftube.cost * ratio["5"] * weight_25_600[onlyNumbers(halftube.width)];  
+                                weight = weight_25_600[onlyNumbers(halftube.width)]; 
+                            }
+                        } 
+
+                        
+                        
+                        
             }
+            resultKilo = (costTape / weight).toFixed(2) + "руб.";
+            resultOrder = (costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)+ "руб.";
             
-            if (onlyNumbers(halftube.length) == 800) {
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["5"] * weight_25_800[onlyNumbers(halftube.width)];  
-                    weight = weight_25_800[onlyNumbers(halftube.width)]; 
-                }
-                if (onlyNumbers(halftube.thickness) == 235) {
-                    costTape = halftube.cost * ratio["5"] * weight_23_800[onlyNumbers(halftube.width)];  
-                    weight = weight_23_800[onlyNumbers(halftube.width)]; 
-                }
+        }
+
+        if (halftube.shape == "Рукав" || halftube.shape == "Полотно") {
+            if (halftube.width < 150) {
+                halftube.width = 150 + "мм";
+            } else {
+                halftube.width = halftube.width + "мм";
             }
-
-            if (onlyNumbers(halftube.length) == 600) {
-                if (onlyNumbers(halftube.thickness) == 25) {
-                    costTape = halftube.cost * ratio["5"] * weight_25_600[onlyNumbers(halftube.width)];  
-                    weight = weight_25_600[onlyNumbers(halftube.width)]; 
-                }
-            } 
-
-            
-            
-            
+            resultKilo = "Цена по запросу";  
+            resultOrder = "Цена по запросу"; 
         }
 
         
@@ -712,8 +780,8 @@ function calcPOFperf() {
                             </div>
                             
                             <div class="row">
-                                <p>Стоймость за килограмм: <span>${((costTape / weight)  + 100).toFixed(2)}</span>руб.</p>
-                                <p>Стоймость заказа: <span>${((costTape + 100) * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
+                                <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
+                                <p>Стоймость заказа: <span>${resultOrder}</span></p>
                             </div>
                             
                           </div>

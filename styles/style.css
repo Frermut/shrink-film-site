@@ -58,6 +58,22 @@ input[type=button]:focus {
   background-color: #0d6efd !important;
 }
 
+input {
+    border-color:#303132 !important;
+    color: rgba(255, 255, 255, 0.800) !important;
+    background-color: #303132 !important;
+    
+}
+
+input[type=text]:hover,
+input[type=text]:active,
+input[type=text]:active:hover,
+input[type=text]:focus {
+    border-color:#303132 !important;
+    color: rgba(255, 255, 255, 0.800) !important;
+    background-color: #303132 !important;
+}
+
 .carousel-inner .promo {
     z-index: 1;
 }
@@ -114,12 +130,6 @@ img {
     height: 10px;
   }
 
-input {
-    border-color:#303132 !important;
-    color: rgba(255, 255, 255, 0.800) !important;
-    background-color: #303132 !important;
-    
-}
 
 .list-group-item {
     border-color:#525456 !important;
