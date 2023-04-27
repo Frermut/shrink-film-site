@@ -54,6 +54,25 @@ document.querySelector(".halftubeCountWrapper").addEventListener('click', event 
 
 //-------------PVX----------------
 
+document.querySelector(".formPVXLiteWrapper").addEventListener('click', event => {
+    toggleActiveBtn(event, ".formPVXLite");
+});
+document.querySelector(".micronWrapperPVXLite").addEventListener('click', event => {
+    toggleActiveBtn(event, ".halftubeThicknessPVXLite");
+});
+document.querySelector(".halftubeWidthWrapperPVXLite").addEventListener('click', event => {
+    toggleActiveBtn(event, ".halftubeWidthPVXLite");
+});
+document.querySelector(".halftubeLengthWrapperPVXLite").addEventListener('click', event => {
+    toggleActiveBtn(event, ".halftubeLengthPVXLite");
+});
+document.querySelector(".halftubeCountWrapperPVXLite").addEventListener('click', event => {
+    toggleActiveBtn(event, ".halftubeCountPVXLite");
+});
+
+//-------------PVXLite----------------
+
+
 function toggleActiveBtn(event, className) {
     const allBtns = document.querySelectorAll(className);
     allBtns.forEach(button => {

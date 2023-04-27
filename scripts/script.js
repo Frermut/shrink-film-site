@@ -1,53 +1,106 @@
-document.querySelector(".micronWrapper").addEventListener("click", event => {
-    let widthWrapper = document.querySelector(".halftubeWidthWrapper");
-    let lengthWrapper = document.querySelector(".halftubeLengthWrapper");
-    let countWrapper = document.querySelector(".halftubeCountWrapper");
-    if (event.target.matches(".halftubeThickness")) {
-        console.log(event.target.value);
-        if (event.target.value == "15 мкм") {
-            widthWrapper.innerHTML = `
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="150 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="200 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="250 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="300 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="400 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">`;
-        
-            lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="750 м">`;
-        
-            countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
-                                    <input type='text' class='form-control halftubeCount halftubeCountPVX' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
-        } 
+document.querySelector(".formPVXWrapper").addEventListener("click", event => {
 
-        if (event.target.value == "19 мкм") {
-            widthWrapper.innerHTML = `
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="250 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="500 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="550 мм">`;
+    if (event.target.matches(".formPVX")) {
+        if (event.target.value == "Полурукав" ) {
+            let micronWrapperPVX = document.querySelector(".micronWrapperPVX");
+            micronWrapperPVX.innerHTML = `
+            <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="15 мкм">
+            <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="19 мкм">
+            <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="25 мкм">
+                `;
 
-            lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="630 м">`;
+            document.querySelector(".micronWrapperPVX").addEventListener("click", event => {
+                let widthWrapper = document.querySelector(".halftubeWidthWrapper");
+                let lengthWrapper = document.querySelector(".halftubeLengthWrapper");
+                let countWrapper = document.querySelector(".halftubeCountWrapper");
 
-            countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+
+                if (event.target.matches(".halftubeThickness")) {
+                    console.log(event.target.value);
+                    if (event.target.value == "15 мкм") {
+                        widthWrapper.innerHTML = `
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="150 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="200 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="250 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="300 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="400 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">`;
+                    
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="750 м">`;
+                    
+                        countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
+                                                <input type='text' class='form-control halftubeCount halftubeCountPVX' placeholder='1' aria-label='1' aria-describedby='basic-addon1'>`; 
+                    } 
+            
+                    if (event.target.value == "19 мкм") {
+                        widthWrapper.innerHTML = `
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="250 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="500 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="550 мм">`;
+            
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="630 м">`;
+            
+                        countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
+                                                <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                    }
+            
+                    if (event.target.value == "25 мкм") {
+                        widthWrapper.innerHTML = `
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="300 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="400 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">
+                            <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="500 мм">`;
+            
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="480 м">`;
+            
+                        countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
+                                                <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                    }
+                }
+            });
         }
 
-        if (event.target.value == "25 мкм") {
-            widthWrapper.innerHTML = `
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="300 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="350 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="400 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="450 мм">
-                <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVX" value="500 мм">`;
+        if (event.target.value == "Рукав" || event.target.value == "Полотно") {
+            let micronWrapperPOF = document.querySelector(".micronWrapperPVX");
+            micronWrapperPOF.innerHTML = `
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="12,5 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="15 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="19 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX halftubeThicknessPVX25" value="25 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="35 мкм">
 
-            lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="480 м">`;
-
-            countWrapper.innerHTML = `<span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                                    <input type="text" class="form-control halftubeCount halftubeCountPVX" placeholder="1" aria-label="1" aria-describedby="basic-addon1">`;
+                `;
+            document.querySelector(".micronWrapperPVX").addEventListener("click", event => {
+    
+                let widthWrapper = document.querySelector(".halftubeWidthWrapperPVX");
+                let lengthWrapper = document.querySelector(".halftubeLengthWrapperPVX");
+                let countWrapper = document.querySelector(".halftubeCountWrapperPVX");
+                
+            
+                if (event.target.matches(".halftubeThickness")) {
+                    console.log(event.target.value);
+                    if (event.target.value == "12,5 мкм" || event.target.value == "15 мкм" || event.target.value == "19 мкм" || event.target.value == "25 мкм" || event.target.value == "35 мкм") {
+                        widthWrapper.innerHTML = `
+                            <p style="color:rgb(255, 255, 255); text-align: center; margin:0;"><i class="bi bi-exclamation-circle"></i> Ширину можно указать от 150 мм</p>
+                            <input type="text" class="form-control halftubeWidth halftubeWidthPVXinput" placeholder="1" value="150" aria-label="1" aria-describedby="basic-addon1" required >`;
+                    
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVX" value="500 м">`;
+                    
+                        countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
+                                                <input type='text' class='form-control halftubeCount halftubeCountPVX' placeholder='1'  value="1" aria-label='1' aria-describedby='basic-addon1' required >`; 
+                    } 
+                }
+            });
         }
     }
+
+
+
+    
 });
 
 
@@ -70,7 +123,6 @@ document.querySelector(".formPOFWrapper").addEventListener("click", event => {
                 let countWrapper = document.querySelector(".halftubeCountWrapperPOF");
 
                 
-            
                 if (event.target.matches(".halftubeThickness")) {
                     console.log(event.target.value);
                     if (event.target.value == "12,5 мкм") {
@@ -217,7 +269,7 @@ document.querySelector(".formPOFWrapper").addEventListener("click", event => {
                             <p style="color:rgb(255, 255, 255); text-align: center; margin:0;"><i class="bi bi-exclamation-circle"></i> Ширину можно указать от 150 мм</p>
                             <input type="text" class="form-control halftubeWidth halftubeWidthPOFinput" placeholder="1" value="150" aria-label="1" aria-describedby="basic-addon1" required >`;
                     
-                        lengthWrapper.innerHTML = `<input type="text" class="form-control halftubeLength halftubeLengthPOFinput" required >`;
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="500 м">`;
                     
                         countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
                                                 <input type='text' class='form-control halftubeCount halftubeCountPOF' placeholder='1'  value="1" aria-label='1' aria-describedby='basic-addon1' required >`; 
@@ -386,7 +438,8 @@ document.querySelector(".formPOFperfWrapper").addEventListener("click", event =>
                             <p style="color:rgb(255, 255, 255); text-align: center; margin:0;"><i class="bi bi-exclamation-circle"></i> Ширину можно указать от 150 мм</p>
                             <input type="text" class="form-control halftubeWidth halftubeWidthPOFperfinput" placeholder="150" value="150" aria-label="1" aria-describedby="basic-addon1" required >`;
                     
-                        lengthWrapper.innerHTML = `<input type="text" class="form-control halftubeLength halftubeLengthPOFperfinput" required >`;
+                        lengthWrapper.innerHTML = `
+                        <input type="button" class="btn btn-primary halftubeLength halftubeLengthPOF" value="500 м">`;
                     
                         countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
                                                 <input type='text' class='form-control halftubeCount halftubeCountPOFperf' placeholder='10' value="10" aria-label='10' aria-describedby='basic-addon1' required >`; 
@@ -397,6 +450,82 @@ document.querySelector(".formPOFperfWrapper").addEventListener("click", event =>
         
     }
 
+});
+
+
+
+document.querySelector(".formPVXLiteWrapper").addEventListener("click", event => {
+
+    if (event.target.matches(".formPVXLite")) {
+        if (event.target.value == "Полурукав" ) {
+            let micronWrapperPVXLite = document.querySelector(".micronWrapperPVXLite");
+            micronWrapperPVXLite.innerHTML = `
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite" value="15 мкм">`;
+
+            document.querySelector(".micronWrapperPVXLite").addEventListener("click", event => {
+                let widthWrapper = document.querySelector(".halftubeWidthWrapperPVXLite");
+                let lengthWrapper = document.querySelector(".halftubeLengthWrapperPVXLite");
+                let countWrapper = document.querySelector(".halftubeCountWrapperPVXLite");
+
+
+                if (event.target.matches(".halftubeThicknessPVXLite")) {
+                    console.log(event.target.value);
+                    if (event.target.value == "15 мкм") {
+                        widthWrapper.innerHTML = `
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="250 мм">
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="300 мм">
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="350 мм">
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="400 мм">
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="450 мм">
+                        <input type="button" class="btn btn-primary halftubeWidth halftubeWidthPVXLite" value="500 мм">`;
+                    
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVXLite" value="600 м">`;
+                    
+                        countWrapper.innerHTML = ` <span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
+                        <input type="text" class="form-control halftubeCount halftubeCountPVXLite" placeholder="123" aria-label="123" aria-describedby="basic-addon1">`; 
+                    } 
+            
+                }
+            });
+        }
+
+        if (event.target.value == "Рукав" || event.target.value == "Полотно") {
+            let micronWrapperPVXLite = document.querySelector(".micronWrapperPVXLite");
+            micronWrapperPVXLite.innerHTML = `
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite" value="12,5 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite" value="15 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite" value="19 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite halftubeThicknessPVXLite25" value="25 мкм">
+                <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVXLite" value="35 мкм">
+
+                `;
+            document.querySelector(".micronWrapperPVXLite").addEventListener("click", event => {
+    
+                let widthWrapper = document.querySelector(".halftubeWidthWrapperPVXLite");
+                let lengthWrapper = document.querySelector(".halftubeLengthWrapperPVXLite");
+                let countWrapper = document.querySelector(".halftubeCountWrapperPVXLite");
+                
+            
+                if (event.target.matches(".halftubeThicknessPVXLite")) {
+                    console.log(event.target.value);
+                    if (event.target.value == "12,5 мкм" || event.target.value == "15 мкм" || event.target.value == "19 мкм" || event.target.value == "25 мкм" || event.target.value == "35 мкм") {
+                        widthWrapper.innerHTML = `
+                            <p style="color:rgb(255, 255, 255); text-align: center; margin:0;"><i class="bi bi-exclamation-circle"></i> Ширину можно указать от 150 мм</p>
+                            <input type="text" class="form-control halftubeWidth halftubeWidthPVXLiteinput" placeholder="1" value="150" aria-label="1" aria-describedby="basic-addon1" required >`;
+                    
+                        lengthWrapper.innerHTML = `<input type="button" class="btn btn-primary halftubeLength halftubeLengthPVXLite" value="500 м">`;
+                    
+                        countWrapper.innerHTML = `<span class='input-group-text' id='basic-addon1'><i class='bi bi-braces-asterisk'></i></span> 
+                                                <input type='text' class='form-control halftubeCount halftubeCountPVXLite' placeholder='1'  value="1" aria-label='1' aria-describedby='basic-addon1' required >`; 
+                    } 
+                }
+            });
+        }
+    }
+
+
+
+    
 });
 
 

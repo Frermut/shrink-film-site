@@ -72,15 +72,19 @@ function calcPvx() {
             clear(halftube,halftube.cost, "PVX");  
             document.querySelector("#resultFormPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.shape = event.target.value
+
         } else if (event.target.matches("input.halftubeThickness")) { 
             document.querySelector("#resultMicronPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.thickness = event.target.value
+
         } else if (event.target.matches("input.halftubeWidth")) {
             document.querySelector("#resultHalftubeWidthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.width = event.target.value
+
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
             halftube.length = event.target.value
+
         }
 
     });
@@ -88,47 +92,69 @@ function calcPvx() {
     document.querySelector("#accordionPVX").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVX").value}`; 
         halftube.halftubeCount = document.querySelector(".halftubeCountPVX").value;
+    
+        document.querySelector("#resultHalftubeWidthPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPVXinput").value}`; 
+        halftube.width = document.querySelector(".halftubeWidthPVXinput").value;
     });
 
+
     document.querySelector(".PVX-T").addEventListener("click", render)
+
 
     function render() {
         let weight = 0;
         let costTape = 0;
+        let resultKilo;
+        let resultOrder;
 
-        if (document.querySelector("input.halftubeCount").value >= 5)  {
-            
-            if (onlyNumbers(halftube.thickness) == 15) {
-                costTape = halftube.cost * ratio["5"] * weight_15[onlyNumbers(halftube.width)];  
-                weight = weight_15[onlyNumbers(halftube.width)]; 
+        if (halftube.shape == "Полурукав") {
+            if (document.querySelector("input.halftubeCount").value >= 5)  {
+                
+                if (onlyNumbers(halftube.thickness) == 15) {
+                    costTape = halftube.cost * ratio["5"] * weight_15[onlyNumbers(halftube.width)];  
+                    weight = weight_15[onlyNumbers(halftube.width)]; 
+                }
+                if (onlyNumbers(halftube.thickness) == 19) {
+                    costTape = halftube.cost * ratio["5"] * weight_19[onlyNumbers(halftube.width)];  
+                    weight = weight_19[onlyNumbers(halftube.width)]; 
+                }
+                if (onlyNumbers(halftube.thickness) == 25) {
+                    costTape = halftube.cost * ratio["5"] * weight_25[onlyNumbers(halftube.width)];  
+                    weight = weight_25[onlyNumbers(halftube.width)]; 
+                }
             }
-            if (onlyNumbers(halftube.thickness) == 19) {
-                costTape = halftube.cost * ratio["5"] * weight_19[onlyNumbers(halftube.width)];  
-                weight = weight_19[onlyNumbers(halftube.width)]; 
-            }
-            if (onlyNumbers(halftube.thickness) == 25) {
-                costTape = halftube.cost * ratio["5"] * weight_25[onlyNumbers(halftube.width)];  
-                weight = weight_25[onlyNumbers(halftube.width)]; 
-            }
+
+            if (document.querySelector("input.halftubeCount").value <= 4) {
+                if (onlyNumbers(halftube.thickness) == 15) {
+                    costTape = halftube.cost * ratio["1-4"] * weight_15[onlyNumbers(halftube.width)];  
+                    weight = weight_15[onlyNumbers(halftube.width)]; 
+                }
+                if (onlyNumbers(halftube.thickness) == 19) {
+                    costTape = halftube.cost * ratio["1-4"] * weight_19[onlyNumbers(halftube.width)];  
+                    weight = weight_19[onlyNumbers(halftube.width)]; 
+                }
+                if (onlyNumbers(halftube.thickness) == 25) {
+                    costTape = halftube.cost * ratio["1-4"] * weight_25[onlyNumbers(halftube.width)];  
+                    weight = weight_25[onlyNumbers(halftube.width)]; 
+                }
+                            
+            } 
+
+            resultKilo = (costTape / weight).toFixed(2) + "руб.";
+            resultOrder = (costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)+ "руб.";
+
         }
 
-        if (document.querySelector("input.halftubeCount").value <= 4) {
-            document.querySelector("#resultHalftubeCountPOF").innerHTML = `&nbsp; ${event.target.value}`; 
-            if (onlyNumbers(halftube.thickness) == 15) {
-                costTape = halftube.cost * ratio["1-4"] * weight_15[onlyNumbers(halftube.width)];  
-                weight = weight_15[onlyNumbers(halftube.width)]; 
+        if (halftube.shape == "Рукав" || halftube.shape == "Полотно") {
+            if (halftube.width < 150) {
+                halftube.width = 150 + "мм";
+            } else {
+                halftube.width = halftube.width + "мм";
             }
-            if (onlyNumbers(halftube.thickness) == 19) {
-                costTape = halftube.cost * ratio["1-4"] * weight_19[onlyNumbers(halftube.width)];  
-                weight = weight_19[onlyNumbers(halftube.width)]; 
-            }
-            if (onlyNumbers(halftube.thickness) == 25) {
-                costTape = halftube.cost * ratio["1-4"] * weight_25[onlyNumbers(halftube.width)];  
-                weight = weight_25[onlyNumbers(halftube.width)]; 
-            }
-                        
-        } 
-        
+            resultKilo = "Цена по запросу";  
+            resultOrder = "Цена по запросу"; 
+        }
+
         let markup = `
         <div class="d-flex row justify-content-center gap-3">
         <div class="col-lg col-md-12">
@@ -178,8 +204,8 @@ function calcPvx() {
           </div>
           
           <div class="row">
-              <p>Стоймость за килограмм: <span>${(costTape / weight).toFixed(2) }</span>руб.</p>
-              <p>Стоймость заказа: <span>${(costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)}</span>руб.</p>
+              <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
+              <p>Стоймость заказа: <span>${resultOrder}</span></p>
           </div>
           
         </div>
@@ -313,13 +339,13 @@ function calcPOF() {
         document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPOFinput").value}`; 
         halftube.width = document.querySelector(".halftubeWidthPOFinput").value;
         
-        document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeLengthPOFinput").value}`; 
-        halftube.length = document.querySelector(".halftubeLengthPOFinput").value + "м";
+       
     });
 
 
 
     document.querySelector(".POF").addEventListener("click", render)
+
 
     function render() {
         let weight = 0;
@@ -798,3 +824,174 @@ function calcPOFperf() {
 }
 
 calcPOFperf();
+
+
+function calcPvxLite() {
+    let ratio = {
+        '1-20': 5.39,
+        '21-49': 5.06,
+        '50': 4.73,
+    }
+    let weight_15 = {
+        250: 5.90,
+        300: 7.00,
+        350: 8.20,
+        400: 9.30,
+        450: 10.50,
+        500: 11.70,
+    }
+
+    
+
+    let halftube = {
+        'shape': '',
+        'thickness': '' ,
+        'width': '',
+        'length': '',
+        'halftubeCount': 1,
+        'cost': 68,
+    };
+
+    document.querySelector("#accordionPVXLite").addEventListener("click", event => {
+        if (event.target.matches("input.formPVXLite")) { 
+            clear(halftube,halftube.cost, "PVXLite");  
+            document.querySelector("#resultFormPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.shape = event.target.value
+
+        } else if (event.target.matches("input.halftubeThickness")) { 
+            document.querySelector("#resultMicronPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.thickness = event.target.value
+
+        } else if (event.target.matches("input.halftubeWidth")) {
+            document.querySelector("#resultHalftubeWidthPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.width = event.target.value
+
+        } else if (event.target.matches("input.halftubeLength")) {
+            document.querySelector("#resultHalftubeLengthPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            halftube.length = event.target.value
+
+        }
+
+    });
+
+    document.querySelector("#accordionPVXLite").addEventListener("input", () => {
+        document.querySelector("#resultHalftubeCountPVXLite").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVXLite").value}`; 
+        halftube.halftubeCount = document.querySelector(".halftubeCountPVXLite").value;
+    
+        document.querySelector("#resultHalftubeWidthPVXLite").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPVXLiteinput").value}`; 
+        halftube.width = document.querySelector(".halftubeWidthPVXLiteinput").value;
+    });
+
+
+    document.querySelector(".PVXLite").addEventListener("click", render)
+
+
+    function render() {
+        let weight = 0;
+        let costTape = 0;
+        let resultKilo;
+        let resultOrder;
+
+        if (halftube.shape == "Полурукав") {
+            if (document.querySelector("input.halftubeCount").value <= 20 && document.querySelector("input.halftubeCount").value >= 1)  {
+                if (onlyNumbers(halftube.thickness) == 15) {
+                    costTape = halftube.cost * ratio["1-20"] * weight_15[onlyNumbers(halftube.width)];  
+                    weight = weight_15[onlyNumbers(halftube.width)]; 
+                }
+            }
+
+            if (document.querySelector("input.halftubeCount").value <= 49 && document.querySelector("input.halftubeCount").value >= 21) {
+                if (onlyNumbers(halftube.thickness) == 15) {
+                    costTape = halftube.cost * ratio["21-49"] * weight_15[onlyNumbers(halftube.width)];  
+                    weight = weight_15[onlyNumbers(halftube.width)]; 
+                }
+                            
+            } 
+
+            if (document.querySelector("input.halftubeCount").value >= 50) {
+                if (onlyNumbers(halftube.thickness) == 15) {
+                    costTape = halftube.cost * ratio["50"] * weight_15[onlyNumbers(halftube.width)];  
+                    weight = weight_15[onlyNumbers(halftube.width)]; 
+                }           
+            } 
+
+            resultKilo = (costTape / weight).toFixed(2) + "руб.";
+            resultOrder = (costTape * onlyNumbers(halftube.halftubeCount)).toFixed(2)+ "руб.";
+
+        }
+
+        if (halftube.shape == "Рукав" || halftube.shape == "Полотно") {
+            if (halftube.width < 150) {
+                halftube.width = 150 + "мм";
+            } else {
+                halftube.width = halftube.width + "мм";
+            }
+            resultKilo = "Цена по запросу";  
+            resultOrder = "Цена по запросу"; 
+        }
+
+        let markup = `
+        <div class="d-flex row justify-content-center gap-3">
+        <div class="col-lg col-md-12">
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Форма плёнки:</li>
+            <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Толщина пленки:</li>
+            <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Ширина пленки:</li>
+            <li class="list-group-item w-25">${halftube.width}</li>
+          </ul>
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Длина пленки:</li>
+            <li class="list-group-item w-25">${halftube.length}</li>
+          </ul>
+          
+          <ul class="list-group list-group-horizontal w-100">
+            <li class="list-group-item w-75">Количество рулонов:</li>
+            <li class="list-group-item w-25">${halftube.halftubeCount}</li>
+          </ul>
+        </div>
+        
+        <div class="col-lg col-md-12">
+          <div class="row">
+            <form action="send.php" method="post" class="" id="pvxSend">
+              <div class="row ">
+                <div class="col-md-12 col-lg">
+                  <div class="input-group mb-3 w-100">
+                    <span class="input-group-text" id="basic-addon1">Имя</span>
+                    <input type="text" name="Name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon2">Телефон</span>
+                  <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+                </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon2">Email</span>
+                    <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          <div class="row">
+              <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
+              <p>Стоймость заказа: <span>${resultOrder}</span></p>
+          </div>
+          
+        </div>
+      </div>
+            `;
+
+            document.querySelector(".PVXLite-body").innerHTML = markup;
+        
+            
+    }
+    
+}
+
+calcPvxLite();

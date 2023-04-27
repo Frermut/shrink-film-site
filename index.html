@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <body>  
     
-      <nav class="navbar navbar-expand-lg pt-3 pb-3" style="background-color: #0e0e10 !important;">
+      <nav class="navbar navbar-expand-lg pt-3 pb-3 " style="background-color: #0e0e10 !important;">
         <div class="container justify-content-end">
           <a class="navbar-brand text-primary me-auto d-block d-lg-none" href="#"><img src="images/company_logo.png" alt="" style="width:100px !important; height: 100 !important;"></a>
           <p class="d-block d-lg-none mobileNumberOnSmallScreen rounded-pill"><i style="margin-left: 10px !important;"  class="bi bi-telephone"></i> <span style="margin-left: 5px !important; font-size: 14px;">+7 (495) 222-05-79</span></p>
@@ -43,7 +43,7 @@
         </div>
       </nav>
   
-      <nav class="navbar navbar-expand-lg pt-3 pb-3" style="background-color: #0e0e10 !important; margin-top: -16px;">
+      <nav class=" navbar navbar-expand-lg pt-3 pb-3 " style="background-color: #0e0e10 !important; margin-top: -16px;">
         <div class="container justify-content-center">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="d-flex justify-content-center navbar-nav me-auto mb-lg-0 w-100 gap">
@@ -341,7 +341,9 @@
                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPVX">
                     <div class="accordion-body">
                       <div class="d-flex col flex-wrap gap formPVXWrapper">
+                        <input type="button" class="btn btn-primary halftube formPVX" value="Рукав">
                         <input type="button" class="btn btn-primary halftube formPVX" value="Полурукав">
+                        <input type="button" class="btn btn-primary halftube formPVX" value="Полотно">
                       </div>
                     </div>
                   </div>
@@ -356,9 +358,7 @@
                   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionPVX">
                     <div class="accordion-body">
                       <div class="d-flex col flex-wrap gap micronWrapper micronWrapperPVX">
-                        <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="15 мкм">
-                        <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="19 мкм">
-                        <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="25 мкм">
+                        <p style="color: rgba(255, 255, 255, 0.800);">Выберите форму пленки.</p>
                       </div>
                     </div>
                   </div>
@@ -403,7 +403,7 @@
                   <div id="collapseSix" class="accordion-collapse collapse"  aria-labelledby="headingSix" data-bs-parent="#accordionPVX">
                     <div class="accordion-body">
                       <div class="d-flex col flex-wrap gap">
-                        <div class="input-group mb-3 halftubeCountWrapper">
+                        <div class="input-group mb-3 halftubeCountWrapper halftubeCountWrapperPVX">
                           <p style="color: rgba(255, 255, 255, 0.800);">Выберите толщину пленки.</p>
                         </div>
                       </div>            
@@ -454,15 +454,15 @@
                 <div class="accordion-item" style="background-color: #414244 !important; border-color: #414244;">
                   <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      1. Форма плёнки:
+                      1. Форма плёнки: <span id="resultFormPVXLite">&nbsp;</span>
                     </button>
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPVXLite">
                     <div class="accordion-body">
-                      <div class="d-flex col flex-wrap gap">
-                        <input type="button" class="btn btn-primary" value="Рукав">
-                        <input type="button" class="btn btn-primary" value="Полурукав">
-                        <input type="button" class="btn btn-primary" value="Полотно">
+                      <div class="d-flex col flex-wrap gap formPVXLiteWrapper">
+                        <input type="button" class="btn btn-primary formPVXLite" value="Рукав">
+                        <input type="button" class="btn btn-primary formPVXLite" value="Полурукав">
+                        <input type="button" class="btn btn-primary formPVXLite" value="Полотно">
                       </div>
                     </div>
                   </div>
@@ -471,16 +471,14 @@
                 <div class="accordion-item" style="background-color: #414244 !important; border-color: #414244;"> 
                   <h2 class="accordion-header" id="headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      2. Толщина пленки:
+                      2. Толщина пленки: <span id="resultMicronPVXLite"></span>
                     </button>
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionPVXLite">
                     <div class="accordion-body">
-                      <div class="d-flex col flex-wrap gap">
-                        <input type="button" class="btn btn-primary" value="12,5 мкм">
-                        <input type="button" class="btn btn-primary" value="15 мкм">
-                        <input type="button" class="btn btn-primary" value="19 мкм">
-                        <input type="button" class="btn btn-primary" value="25 мкм">
+                      <div class="d-flex col flex-wrap gap micronWrapperPVXLite">
+
+                        <p style="color: rgba(255, 255, 255, 0.800);">Выберите форму пленки.</p>
                       </div>
                     </div>
                   </div>
@@ -489,13 +487,15 @@
                 <div class="accordion-item" style="background-color: #414244 !important; border-color: #414244;">
                   <h2 class="accordion-header" id="headingFive">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                      3. Длина пленки:
+                      3. Длина пленки: <span id="resultHalftubeLengthPVXLite"></span>
                     </button>
                   </h2>
                   <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionPVXLite">
                     <div class="accordion-body">
-                      <div class="d-flex col flex-wrap gap">
-                        <input type="button" class="btn btn-primary" value="500 м">
+                      <div class="d-flex col flex-wrap gap halftubeLengthWrapperPVXLite">
+                        
+                        <p style="color: rgba(255, 255, 255, 0.800);">Выберите толщину пленки.</p>
+
                       </div>            
                     </div>
                   </div>
@@ -504,23 +504,14 @@
                 <div class="accordion-item" style="background-color: #414244 !important; border-color: #414244;">
                   <h2 class="accordion-header" id="headingFour">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      4. Ширина пленки:
+                      4. Ширина пленки: <span id="resultHalftubeWidthPVXLite"></span>
                     </button>
                   </h2>
                   <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionPVXLite">
                     <div class="accordion-body">
-                      <div class="d-flex col flex-wrap gap">
-                        <input type="button" class="btn btn-primary" value="125 мм">
-                        <input type="button" class="btn btn-primary" value="150 мм">
-                        <input type="button" class="btn btn-primary" value="200 мм">
-                        <input type="button" class="btn btn-primary" value="250 мм">
-                        <input type="button" class="btn btn-primary" value="300 мм">
-                        <input type="button" class="btn btn-primary" value="350 мм">
-                        <input type="button" class="btn btn-primary" value="400 мм">
-                        <input type="button" class="btn btn-primary" value="450 мм">
-                        <input type="button" class="btn btn-primary" value="500 мм">
-                        <input type="button" class="btn btn-primary" value="550 мм">
-                        <input type="button" class="btn btn-primary" value="600 мм">
+                      <div class="d-flex col flex-wrap gap halftubeWidthWrapperPVXLite">
+                        <p style="color: rgba(255, 255, 255, 0.800);">Выберите толщину пленки.</p>
+                      
                       </div>
                     </div>
                   </div>
@@ -531,22 +522,21 @@
                 <div class="accordion-item" style="background-color: #414244 !important; border-color: #414244;">
                   <h2 class="accordion-header" id="headingSix">
                     <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                      5. Количество рулонов:
+                      5. Количество рулонов: <span id="resultHalftubeCountPVXLite"></span>
                     </button>
                   </h2>
                   <div id="collapseSix" class="accordion-collapse collapse"  aria-labelledby="headingSix" data-bs-parent="#accordionPVXLite">
                     <div class="accordion-body">
                       <div class="d-flex col flex-wrap gap">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon1"><i class="bi bi-braces-asterisk"></i></span>
-                          <input type="text" class="form-control" placeholder="123" aria-label="123" aria-describedby="basic-addon1">
+                        <div class="input-group mb-3 halftubeCountWrapperPVXLite">
+                          <p style="color: rgba(255, 255, 255, 0.800);">Выберите толщину пленки.</p>              
                         </div>
                       </div>            
                     </div>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                  <button type="button" class="btn col-6 " style="background-color: rgba(255, 255, 255, 0.800);" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+                  <button type="button" class="btn col-6 PVXLite" style="background-color: rgba(255, 255, 255, 0.800);" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
                     Рассчитать
                   </button>
                 </div>
@@ -563,11 +553,13 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgba(255, 255, 255, 0.800) !important;"></button>
                     </div>
                     <div class="modal-body" style="border-color: #525456 !important;color: rgba(255, 255, 255, 0.800);">
-                      <p>Пожалуйста, выберите все пункты.</p>
+                      <div class="PVXLite-body">
+                        <p>Пожалуйста, выберите все пункты.</p>
+                      </div>
                     </div>
                     <div class="modal-footer" style="border-color: #525456 !important;color: rgba(255, 255, 255, 0.800);">
                       <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button> -->
-                      <button type="button" class="btn btn-primary">Заказать</button>
+                      <button type="button" form="PVXLiteSend" class="btn btn-primary">Заказать</button>
                     </div>
                   </div>
                 </div>
@@ -582,10 +574,10 @@
         </div>
       </section>    
   
-      <section style="margin-top: 50px !important;" data-aos="fade-up">
+      <section style="margin-top: 50px !important;" data-aos="fade-up" id="scrollspyHeading2">
         <div class="container rounded-2 p-2" style="background-color: #212224;">
     
-          <h4 id="scrollspyHeading2" class="d-block text-center pt-3" style="color:rgba(255, 255, 255, 0.800)">ОБОРУДОВАНИЕ</h4>
+          <h4  class="d-block text-center pt-3" style="color:rgba(255, 255, 255, 0.800)">ОБОРУДОВАНИЕ</h4>
           <div class="d-flex px-4 row justify-content-center align-items-center">
                 <div class="col-md-12 col-lg-7 p-4 rounded-2 " style="color:rgba(255, 255, 255, 0.800); background-color: #414244;">
 
@@ -609,10 +601,10 @@
         </div>
       </section>   
 
-      <section style="margin-top: 50px !important;" data-aos="fade-up">
+      <section style="margin-top: 50px !important;" data-aos="fade-up" id="scrollspyHeading1">
         <div class="container rounded-2 p-2" style="background-color: #212224;">
       
-          <h4 id="scrollspyHeading1" class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">ПЛЕНКА ИЗ ПОЛИОЛЕФИНА В МОСКВЕ</h4>
+          <h4  class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">ПЛЕНКА ИЗ ПОЛИОЛЕФИНА В МОСКВЕ</h4>
           <div class="d-flex p-2 row">
                 <div class="col-md-12 col-lg-5 me-auto p-md-2 p-lg-4 d-flex align-items-center">
                   <img src="images/poli.png" class="img-fluid rounded-2" alt="...">
@@ -645,11 +637,11 @@
         </div>
       </section>
       
-      <section class="bg-light py-4 my-5" style="background-color: #0e0e10 !important;">
+      <section class="bg-light py-4 my-5" style="background-color: #0e0e10 !important;" id="scrollspyHeading3">
         <div class="container" style="background-color: #0e0e10 !important">
             <div class="row">
                 <div class="col-12">
-                    <h4 class="mb-3 text-center" id="scrollspyHeading3" style="color:rgba(255, 255, 255, 0.800)">ГАЛЕРЕЯ</h4>
+                    <h4 class="mb-3 text-center"  style="color:rgba(255, 255, 255, 0.800)">ГАЛЕРЕЯ</h4>
                 </div>
     
                 <div class="col-md-6 col-lg-4" data-aos-delay="100" data-aos="fade-up">
@@ -705,8 +697,8 @@
       </div>
       </section>   
 
-      <section data-aos="fade-up" style="margin-top: 50px !important;" data-aos="fade-up">
-        <h4 id="scrollspyHeading4" class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">КОНТАКТЫ</h4>
+      <section data-aos="fade-up" style="margin-top: 50px !important;" data-aos="fade-up" id="scrollspyHeading4">
+        <h4  class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">КОНТАКТЫ</h4>
         <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aff6cea5c97a310e4d735b16cb1a9aa3ab017101dbf7952168807549bb2657d09&amp;width=100%25&amp;height=334&amp;lang=ru_RU&amp;scroll=true"></script>
         <div class="container rounded-2 p-2 d-flex">
           <div class="d-flex p-2 row">
