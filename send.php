@@ -1,6 +1,13 @@
 <?php 
 $name = $_POST['name'];
 $email = $_POST['email'];
+$mobile = $_POST['mobile'];
+$shape = $_POST['shape'];
+$thickness = $_POST['thickness'];
+$width = $_POST['width'];
+$length = $_POST['length'];
+$halftubeCount = $_POST['halftubeCount'];
+
 $name = htmlspecialchars($name);
 $email = htmlspecialchars($email);
 $name  = urldecode($name);

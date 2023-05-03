@@ -156,39 +156,40 @@ function calcPvx() {
         }
 
         let markup = `
+        <form action="send.php" method="post" class="" id="pvxSend">
         <div class="d-flex row justify-content-center gap-3">
         <div class="col-lg col-md-12">
           <ul class="list-group list-group-horizontal w-100">
             <li class="list-group-item w-75">Форма плёнки:</li>
-            <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
+            <li class="list-group-item w-25" style="font-size:14px" name="shape">${halftube.shape}</li>
           </ul>
           <ul class="list-group list-group-horizontal w-100">
             <li class="list-group-item w-75">Толщина пленки:</li>
-            <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
+            <li class="list-group-item w-25" style="font-size:14px" name="thickness">${halftube.thickness}</li>
           </ul>
           <ul class="list-group list-group-horizontal w-100">
             <li class="list-group-item w-75">Ширина пленки:</li>
-            <li class="list-group-item w-25">${halftube.width}</li>
+            <li class="list-group-item w-25" name="width">${halftube.width}</li>
           </ul>
           <ul class="list-group list-group-horizontal w-100">
             <li class="list-group-item w-75">Длина пленки:</li>
-            <li class="list-group-item w-25">${halftube.length}</li>
+            <li class="list-group-item w-25" name="length">${halftube.length}</li>
           </ul>
           
           <ul class="list-group list-group-horizontal w-100">
             <li class="list-group-item w-75">Количество рулонов:</li>
-            <li class="list-group-item w-25">${halftube.halftubeCount}</li>
+            <li class="list-group-item w-25" name="halftubeCount">${halftube.halftubeCount}</li>
           </ul>
         </div>
         
         <div class="col-lg col-md-12">
           <div class="row">
-            <form action="send.php" method="post" class="" id="pvxSend">
+           
               <div class="row ">
                 <div class="col-md-12 col-lg">
                   <div class="input-group mb-3 w-100">
                     <span class="input-group-text" id="basic-addon1">Имя</span>
-                    <input type="text" name="Name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                   <span class="input-group-text" id="basic-addon2">Телефон</span>
@@ -200,8 +201,9 @@ function calcPvx() {
                   </div>
                 </div>
               </div>
+            </div>
+
             </form>
-          </div>
           
           <div class="row">
               <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
