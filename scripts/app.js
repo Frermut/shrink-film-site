@@ -27,7 +27,74 @@ function clear(halftube,cost,type,num = 1) {
       console.log(halftube);
 }
 
-function calcPvx() {
+function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, resultOrder,shrink_type, id) {
+    return `
+    <form action="send.php" method="post" class="" id="${id}">
+    <div class="d-flex row justify-content-center gap-3">
+    <div class="col-lg col-md-12">
+      <ul class="list-group list-group-horizontal w-100">
+        <li class="list-group-item w-75">Форма плёнки:</li>
+        <li class="list-group-item w-25" style="font-size:14px" >${shape}</li>
+        <input type="hidden" name="shrink_type" value="${shrink_type}">
+        <input type="hidden" name="shape" value="${shape}">
+      </ul>
+      <ul class="list-group list-group-horizontal w-100">
+        <li class="list-group-item w-75">Толщина пленки:</li>
+        <li class="list-group-item w-25" style="font-size:14px" >${thickness}</li>
+        <input type="hidden" name="thickness" value="${thickness}">
+      </ul>
+      <ul class="list-group list-group-horizontal w-100">
+        <li class="list-group-item w-75">Ширина пленки:</li>
+        <li class="list-group-item w-25" name="width">${width}</li>
+        <input type="hidden" name="width" value="${width}">
+      </ul>
+      <ul class="list-group list-group-horizontal w-100">
+        <li class="list-group-item w-75">Длина пленки:</li>
+        <li class="list-group-item w-25" >${length}</li>
+        <input type="hidden" name="length" value="${length}">
+      </ul>
+      <ul class="list-group list-group-horizontal w-100">
+        <li class="list-group-item w-75">Количество рулонов:</li>
+        <li class="list-group-item w-25" >${halftubeCount}</li>
+        <input type="hidden" name="halftubeCount" value="${halftubeCount}">
+      </ul>
+    </div>
+    
+    <div class="col-lg col-md-12">
+      <div class="row">
+       
+          <div class="row ">
+            <div class="col-md-12 col-lg">
+              <div class="input-group mb-3 w-100">
+                <span class="input-group-text" id="basic-addon1">Имя</span>
+                <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon2">Телефон</span>
+              <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">Email</span>
+                <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      
+      <div class="row">
+          <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
+          <p>Стоймость заказа: <span >${resultOrder}</span></p>
+          <input type="hidden" name="price" value="${resultOrder}">
+      </div>
+      </form>
+    </div>
+  </div>
+        `
+}
+
+(function calcPvx() {
     let ratio = {
         '1-4': 1.24,
         '5': 1.16,
@@ -155,75 +222,14 @@ function calcPvx() {
             resultOrder = "Цена по запросу"; 
         }
 
-        let markup = `
-        <form action="send.php" method="post" class="" id="pvxSend">
-        <div class="d-flex row justify-content-center gap-3">
-        <div class="col-lg col-md-12">
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Форма плёнки:</li>
-            <li class="list-group-item w-25" style="font-size:14px" name="shape">${halftube.shape}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Толщина пленки:</li>
-            <li class="list-group-item w-25" style="font-size:14px" name="thickness">${halftube.thickness}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Ширина пленки:</li>
-            <li class="list-group-item w-25" name="width">${halftube.width}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Длина пленки:</li>
-            <li class="list-group-item w-25" name="length">${halftube.length}</li>
-          </ul>
-          
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Количество рулонов:</li>
-            <li class="list-group-item w-25" name="halftubeCount">${halftube.halftubeCount}</li>
-          </ul>
-        </div>
-        
-        <div class="col-lg col-md-12">
-          <div class="row">
-           
-              <div class="row ">
-                <div class="col-md-12 col-lg">
-                  <div class="input-group mb-3 w-100">
-                    <span class="input-group-text" id="basic-addon1">Имя</span>
-                    <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon2">Телефон</span>
-                  <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon2">Email</span>
-                    <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            </form>
-          
-          <div class="row">
-              <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
-              <p>Стоймость заказа: <span>${resultOrder}</span></p>
-          </div>
-          
-        </div>
-      </div>
-            `;
-
-            document.querySelector(".PVX-TBody").innerHTML = markup;
-        
+        let markup = get_markup(halftube.shape, halftube.thickness, halftube.width, halftube.length, halftube.halftubeCount, resultKilo, resultOrder, "ПВХ-Т","pvxSend");
+        document.querySelector(".PVX-TBody").innerHTML = markup;
             
     }
     
-}
+}());
 
-calcPvx();
-
-function calcPOF() {
+(function calcPOF() {
     let ratio = {
         '1-4': 1.24,
         '5': 1.16,
@@ -492,73 +498,16 @@ function calcPOF() {
         
 
         
-        let markup = `
-            <div class="d-flex row justify-content-center gap-3">
-                          <div class="col-lg col-md-12">
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Форма плёнки:</li>
-                              <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Толщина пленки:</li>
-                              <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Ширина пленки:</li>
-                              <li class="list-group-item w-25">${halftube.width}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Длина пленки:</li>
-                              <li class="list-group-item w-25">${halftube.length}</li>
-                            </ul>
-                            
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Количество рулонов:</li>
-                              <li class="list-group-item w-25">${halftube.halftubeCount}</li>
-                            </ul>
-                          </div>
-                          
-                          <div class="col-lg col-md-12">
-                            <div class="row">
-                              <form action="../send.php" method="post" class="" id="pofSend">
-                                <div class="row ">
-                                  <div class="col-md-12 col-lg">
-                                    <div class="input-group mb-3 w-100">
-                                      <span class="input-group-text" id="basic-addon1">Имя</span>
-                                      <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" required>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon2">Телефон</span>
-                                    <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                                  </div>
-                                    <div class="input-group mb-3">
-                                      <span class="input-group-text" id="basic-addon2">Email</span>
-                                      <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                            
-                            <div class="row">
-                                <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
-                                <p>Стоймость заказа: <span>${resultOrder}</span></p>
-                            </div>
-                            
-                          </div>
-                        </div>
-            `;
+        let markup = get_markup(halftube.shape, halftube.thickness, halftube.width, halftube.length, halftube.halftubeCount, resultKilo, resultOrder, "ПОФ", "pofSend");
 
             document.querySelector(".POF-body").innerHTML = markup;
         
             
     }
     
-}
+}());
 
-calcPOF();
-
-function calcPOFperf() {
+(function calcPOFperf() {
     let ratio = {
         '1-4': 1.24,
         '5': 1.16,
@@ -758,63 +707,7 @@ function calcPOFperf() {
 
         
 
-            let markup = `
-            <div class="d-flex row justify-content-center gap-3">
-                          <div class="col-lg col-md-12">
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Форма плёнки:</li>
-                              <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Толщина пленки:</li>
-                              <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Ширина пленки:</li>
-                              <li class="list-group-item w-25">${halftube.width}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Длина пленки:</li>
-                              <li class="list-group-item w-25">${halftube.length}</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal w-100">
-                              <li class="list-group-item w-75">Количество рулонов:</li>
-                              <li class="list-group-item w-25">${halftube.halftubeCount}</li>
-                            </ul>
-                          </div>
-                          
-                          <div class="col-lg col-md-12">
-                            <div class="row">
-                              <form action="../send.php" method="post" class="" id="pofperfSend">
-                                <div class="row ">
-                                  <div class="col-md-12 col-lg">
-                                    <div class="input-group mb-3 w-100">
-                                      <span class="input-group-text" id="basic-addon1">Имя</span>
-                                      <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" required>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                      <span class="input-group-text" id="basic-addon2">Телефон</span>
-                                      <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                      <span class="input-group-text" id="basic-addon2">Email</span>
-                                      <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                            
-                            <div class="row">
-                                <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
-                                <p>Стоймость заказа: <span>${resultOrder}</span></p>
-                            </div>
-                            
-                          </div>
-                        </div>
-            `;
+        let markup = get_markup(halftube.shape, halftube.thickness, halftube.width, halftube.length, halftube.halftubeCount, resultKilo, resultOrder, "ПОФ-Перфорированный", "pofPerfsend");
 
             document.querySelector(".POFperf-body").innerHTML = markup;
         
@@ -823,12 +716,9 @@ function calcPOFperf() {
             
     }
     
-}
+}());
 
-calcPOFperf();
-
-
-function calcPvxLite() {
+(function calcPvxLite() {
     let ratio = {
         '1-20': 5.39,
         '21-49': 5.06,
@@ -932,68 +822,11 @@ function calcPvxLite() {
             resultOrder = "Цена по запросу"; 
         }
 
-        let markup = `
-        <div class="d-flex row justify-content-center gap-3">
-        <div class="col-lg col-md-12">
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Форма плёнки:</li>
-            <li class="list-group-item w-25" style="font-size:14px">${halftube.shape}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Толщина пленки:</li>
-            <li class="list-group-item w-25" style="font-size:14px">${halftube.thickness}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Ширина пленки:</li>
-            <li class="list-group-item w-25">${halftube.width}</li>
-          </ul>
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Длина пленки:</li>
-            <li class="list-group-item w-25">${halftube.length}</li>
-          </ul>
-          
-          <ul class="list-group list-group-horizontal w-100">
-            <li class="list-group-item w-75">Количество рулонов:</li>
-            <li class="list-group-item w-25">${halftube.halftubeCount}</li>
-          </ul>
-        </div>
-        
-        <div class="col-lg col-md-12">
-          <div class="row">
-            <form action="send.php" method="post" class="" id="pvxSend">
-              <div class="row ">
-                <div class="col-md-12 col-lg">
-                  <div class="input-group mb-3 w-100">
-                    <span class="input-group-text" id="basic-addon1">Имя</span>
-                    <input type="text" name="Name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon2">Телефон</span>
-                  <input type="text" name="mobile" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon2">Email</span>
-                    <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          
-          <div class="row">
-              <p>Стоймость за килограмм: <span>${resultKilo}</span></p>
-              <p>Стоймость заказа: <span>${resultOrder}</span></p>
-          </div>
-          
-        </div>
-      </div>
-            `;
+        let markup = get_markup(halftube.shape, halftube.thickness, halftube.width, halftube.length, halftube.halftubeCount, resultKilo, resultOrder, "ПВХ-Lite", "PVXLiteSend");
 
             document.querySelector(".PVXLite-body").innerHTML = markup;
         
             
     }
     
-}
-
-calcPvxLite();
+}());
