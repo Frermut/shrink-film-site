@@ -1,6 +1,7 @@
 document.querySelector(".formPVXWrapper").addEventListener("click", event => {
 
     if (event.target.matches(".formPVX")) {
+        
         if (event.target.value == "Полурукав" ) {
             let micronWrapperPVX = document.querySelector(".micronWrapperPVX");
             micronWrapperPVX.innerHTML = `
@@ -72,8 +73,8 @@ document.querySelector(".formPVXWrapper").addEventListener("click", event => {
                 <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="19 мкм">
                 <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX halftubeThicknessPVX25" value="25 мкм">
                 <input type="button" class="btn btn-primary halftubeThickness halftubeThicknessPVX" value="35 мкм">
-
                 `;
+
             document.querySelector(".micronWrapperPVX").addEventListener("click", event => {
     
                 let widthWrapper = document.querySelector(".halftubeWidthWrapperPVX");

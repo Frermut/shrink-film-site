@@ -197,6 +197,25 @@ footer input:focus{
 }
 */
 
+.halftubeThickness, .halftubeWidth, .halftubeLength, .halftubeCount {
+    opacity: 0;
+    animation: anim 0.5s forwards;
+  }
+  
+  @keyframes anim {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
+  .fs-4 > span {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+
+
+
+
 @media screen and (max-width: 960px) {
     ul.gap {
         gap:0;

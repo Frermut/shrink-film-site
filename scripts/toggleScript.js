@@ -12,7 +12,7 @@ document.querySelector(".halftubeLengthWrapperPOF").addEventListener('click', ev
     toggleActiveBtn(event, ".halftubeLengthPOF");
 });
 document.querySelector(".halftubeCountWrapperPOF").addEventListener('click', event => {
-    toggleActiveBtn(event, ".halftubeCountPOF");
+
 });
 
 // -------------POF----------------------
@@ -31,7 +31,7 @@ document.querySelector(".halftubeLengthWrapperPOFperf").addEventListener('click'
     toggleActiveBtn(event, ".halftubeLengthPOFperf");
 });
 document.querySelector(".halftubeCountWrapperPOFperf").addEventListener('click', event => {
-    toggleActiveBtn(event, ".halftubeCountPOFperf");
+
 });
 
 //------------POFperf---------------
@@ -49,7 +49,7 @@ document.querySelector(".halftubeLengthWrapperPVX").addEventListener('click', ev
     toggleActiveBtn(event, ".halftubeLengthPVX");
 });
 document.querySelector(".halftubeCountWrapper").addEventListener('click', event => {
-    toggleActiveBtn(event, ".halftubeCount");
+
 });
 
 //-------------PVX----------------
@@ -67,7 +67,7 @@ document.querySelector(".halftubeLengthWrapperPVXLite").addEventListener('click'
     toggleActiveBtn(event, ".halftubeLengthPVXLite");
 });
 document.querySelector(".halftubeCountWrapperPVXLite").addEventListener('click', event => {
-    toggleActiveBtn(event, ".halftubeCountPVXLite");
+
 });
 
 //-------------PVXLite----------------

@@ -138,18 +138,24 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         if (event.target.matches("input.formPVX")) { 
             clear(halftube,halftube.cost, "PVX");  
             document.querySelector("#resultFormPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultFormPVX").style.opacity = 1;
             halftube.shape = event.target.value
 
         } else if (event.target.matches("input.halftubeThickness")) { 
             document.querySelector("#resultMicronPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultMicronPVX").style.opacity = 1;
             halftube.thickness = event.target.value
 
         } else if (event.target.matches("input.halftubeWidth")) {
             document.querySelector("#resultHalftubeWidthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeWidthPVX").style.opacity = 1;
+
             halftube.width = event.target.value
 
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPVX").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeLengthPVX").style.opacity = 1;
+
             halftube.length = event.target.value
 
         }
@@ -157,10 +163,12 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
     });
 
     document.querySelector("#accordionPVX").addEventListener("input", () => {
-        document.querySelector("#resultHalftubeCountPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVX").value}`; 
+        document.querySelector("#resultHalftubeCountPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVX").value}`;
+        document.querySelector("#resultHalftubeCountPVX").style.opacity = 1;
         halftube.halftubeCount = document.querySelector(".halftubeCountPVX").value;
     
         document.querySelector("#resultHalftubeWidthPVX").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPVXinput").value}`; 
+        document.querySelector("#resultHalftubeWidthPVX").style.opacity = 1;
         halftube.width = document.querySelector(".halftubeWidthPVXinput").value;
     });
 
@@ -224,7 +232,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
         let markup = get_markup(halftube.shape, halftube.thickness, halftube.width, halftube.length, halftube.halftubeCount, resultKilo, resultOrder, "ПВХ-Т","pvxSend");
         document.querySelector(".PVX-TBody").innerHTML = markup;
-            
+        
     }
     
 }());
@@ -323,18 +331,19 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         if (event.target.matches("input.formPof")) {   
             clear(halftube,halftube.cost, "POF");
             document.querySelector("#resultFormPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultFormPOF").style.opacity = 1;
             halftube.shape = event.target.value 
         } else if (event.target.matches("input.halftubeThickness")) {    
-            
             document.querySelector("#resultMicronPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultMicronPOF").style.opacity = 1;
             halftube.thickness = event.target.value 
         } else if (event.target.matches("input.halftubeWidth")) {
-            
             document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeWidthPOF").style.opacity = 1;
             halftube.width = event.target.value
         } else if (event.target.matches("input.halftubeLength")) {
-            
             document.querySelector("#resultHalftubeLengthPOF").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeLengthPOF").style.opacity = 1;
             halftube.length = event.target.value
         }
  
@@ -342,9 +351,11 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
     document.querySelector("#accordionPOF").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPOF").value}`; 
+        document.querySelector("#resultHalftubeCountPOF").style.opacity = 1;
         halftube.halftubeCount = document.querySelector(".halftubeCountPOF").value;
 
         document.querySelector("#resultHalftubeWidthPOF").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPOFinput").value}`; 
+        document.querySelector("#resultHalftubeWidthPOF").style.opacity = 1;
         halftube.width = document.querySelector(".halftubeWidthPOFinput").value;
         
        
@@ -601,15 +612,19 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         if (event.target.matches("input.formPOFperf")) {  
             clear(halftube,halftube.cost, "POFperf",10); 
             document.querySelector("#resultFormPOFperf").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultFormPOFperf").style.opacity = 1;
             halftube.shape = event.target.value 
         } else if (event.target.matches("input.halftubeThickness")) {    
             document.querySelector("#resultMicronPOFperf").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultMicronPOFperf").style.opacity = 1;
             halftube.thickness = event.target.value 
         } else if (event.target.matches("input.halftubeWidth")) {
             document.querySelector("#resultHalftubeWidthPOFperf").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeWidthPOFperf").style.opacity = 1;
             halftube.width = event.target.value
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPOFperf").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeLengthPOFperf").style.opacity = 1;
             halftube.length = event.target.value
         }
 
@@ -617,12 +632,15 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
     document.querySelector("#accordionPOFperf").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPOFperf").value}`; 
+        document.querySelector("#resultHalftubeCountPOFperf").style.opacity = 1;
         halftube.halftubeCount = document.querySelector(".halftubeCountPOFperf").value;
     
         document.querySelector("#resultHalftubeWidthPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPOFperfinput").value}`; 
+        document.querySelector("#resultHalftubeWidthPOFperf").style.opacity = 1;
         halftube.width = document.querySelector(".halftubeWidthPOFperfinput").value;
         
         document.querySelector("#resultHalftubeLengthPOFperf").innerHTML = `&nbsp; ${document.querySelector(".halftubeLengthPOFperfinput").value}`; 
+        document.querySelector("#resultHalftubeLengthPOFperf").style.opacity = 1;
         halftube.length = document.querySelector(".halftubeLengthPOFperfinput").value + "м";
     });
 
@@ -748,18 +766,22 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         if (event.target.matches("input.formPVXLite")) { 
             clear(halftube,halftube.cost, "PVXLite");  
             document.querySelector("#resultFormPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultFormPVXLite").style.opacity = 1;
             halftube.shape = event.target.value
 
         } else if (event.target.matches("input.halftubeThickness")) { 
             document.querySelector("#resultMicronPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultMicronPVXLite").style.opacity = 1;
             halftube.thickness = event.target.value
 
         } else if (event.target.matches("input.halftubeWidth")) {
             document.querySelector("#resultHalftubeWidthPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeWidthPVXLite").style.opacity = 1;
             halftube.width = event.target.value
 
         } else if (event.target.matches("input.halftubeLength")) {
             document.querySelector("#resultHalftubeLengthPVXLite").innerHTML = `&nbsp; ${event.target.value}`; 
+            document.querySelector("#resultHalftubeLengthPVXLite").style.opacity = 1;
             halftube.length = event.target.value
 
         }
@@ -768,9 +790,11 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
     document.querySelector("#accordionPVXLite").addEventListener("input", () => {
         document.querySelector("#resultHalftubeCountPVXLite").innerHTML = `&nbsp; ${document.querySelector(".halftubeCountPVXLite").value}`; 
+        document.querySelector("#resultHalftubeCountPVXLite").style.opacity = 1;
         halftube.halftubeCount = document.querySelector(".halftubeCountPVXLite").value;
     
         document.querySelector("#resultHalftubeWidthPVXLite").innerHTML = `&nbsp; ${document.querySelector(".halftubeWidthPVXLiteinput").value}`; 
+        document.querySelector("#resultHalftubeWidthPVXLite").style.opacity = 1;
         halftube.width = document.querySelector(".halftubeWidthPVXLiteinput").value;
     });
 
