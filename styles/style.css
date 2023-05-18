@@ -196,6 +196,10 @@ footer input:focus{
     outline: none !important;
 }
 */
+.mobileCall:hover {
+    transition: 100ms !important;
+    background-color: #0a54c3 !important;
+}
 
 .halftubeThickness, .halftubeWidth, .halftubeLength, .halftubeCount {
     opacity: 0;

@@ -67,7 +67,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
             <div class="col-md-12 col-lg">
               <div class="input-group mb-3 w-100">
                 <span class="input-group-text" id="basic-addon1">Имя</span>
-                <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" name="name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" required>
               </div>
               <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon2">Телефон</span>
@@ -75,7 +75,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
             </div>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon2">Email</span>
-                <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" name="email" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2" required>
               </div>
             </div>
           </div>
