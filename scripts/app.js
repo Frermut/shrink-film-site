@@ -33,29 +33,29 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
     <div class="d-flex row justify-content-center gap-3">
     <div class="col-lg col-md-12">
       <ul class="list-group list-group-horizontal w-100">
-        <li class="list-group-item w-75">Форма плёнки:</li>
-        <li class="list-group-item w-25" style="font-size:14px" >${shape}</li>
+        <li class="list-group-item " style="width:65%">Форма плёнки:</li>
+        <li class="list-group-item " style="font-size:14px; width:35%" >${shape}</li>
         <input type="hidden" name="shrink_type" value="${shrink_type}">
         <input type="hidden" name="shape" value="${shape}">
       </ul>
       <ul class="list-group list-group-horizontal w-100">
-        <li class="list-group-item w-75">Толщина пленки:</li>
-        <li class="list-group-item w-25" style="font-size:14px" >${thickness}</li>
+        <li class="list-group-item " style="width:65%">Толщина пленки:</li>
+        <li class="list-group-item " style="font-size:14px; width:35%" >${thickness}</li>
         <input type="hidden" name="thickness" value="${thickness}">
       </ul>
       <ul class="list-group list-group-horizontal w-100">
-        <li class="list-group-item w-75">Ширина пленки:</li>
-        <li class="list-group-item w-25" name="width">${width}</li>
+        <li class="list-group-item " style="width:65%">Ширина пленки:</li>
+        <li class="list-group-item " style="width:35%" name="width">${width}</li>
         <input type="hidden" name="width" value="${width}">
       </ul>
       <ul class="list-group list-group-horizontal w-100">
-        <li class="list-group-item w-75">Длина пленки:</li>
-        <li class="list-group-item w-25" >${length}</li>
+        <li class="list-group-item " style="width:65%">Длина пленки:</li>
+        <li class="list-group-item " style="width:35%">${length}</li>
         <input type="hidden" name="length" value="${length}">
       </ul>
       <ul class="list-group list-group-horizontal w-100">
-        <li class="list-group-item w-75">Количество рулонов:</li>
-        <li class="list-group-item w-25" >${halftubeCount}</li>
+        <li class="list-group-item " style="width:65%">Количество рулонов:</li>
+        <li class="list-group-item "  style="width:35%" >${halftubeCount}</li>
         <input type="hidden" name="halftubeCount" value="${halftubeCount}">
       </ul>
     </div>
