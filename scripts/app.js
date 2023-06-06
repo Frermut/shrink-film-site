@@ -1,3 +1,43 @@
+//Коэффициенты ПВХ
+const ratioPvx = {
+    '1-4': 1.24,
+    '5': 1.16,
+}
+//цена ПВХ
+const costPvx = 265;
+
+
+
+//Коэффициенты ПОФ
+const ratioPOF = {
+    '1-4': 1.24,
+    '5': 1.16,
+}
+//цена ПОФ
+const costPOF = 235;
+
+
+
+//Коэффициенты ПОФ перфорированный
+const ratioPOFperf = {
+    '1-4': 1.24,
+    '5': 1.16,
+}
+//цена ПОФ перфорированный
+const costPOFperf = 235;
+
+
+
+//Коэффициенты ПВХ Лайт
+const ratioPvxLite = {
+    '1-20': 5.39,
+    '21-49': 5.06,
+    '50': 4.73,
+}
+//цена ПВХ лайт
+const costPvxLite = 68;
+
+
 
 function onlyNumbers (str){
 	str = String(str); //
@@ -95,10 +135,11 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 }
 
 (function calcPvx() {
-    let ratio = {
-        '1-4': 1.24,
-        '5': 1.16,
+    const ratio = {
+        '1-4': ratioPvx['1-4'],
+        '5': ratioPvx['5'],
     }
+
     let weight_15 = {
         150: 4.40,
         200: 5.80,
@@ -131,7 +172,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         'width': '',
         'length': '',
         'halftubeCount': 1,
-        'cost': 265,
+        'cost': costPvx,
     };
 
     document.querySelector("#accordionPVX").addEventListener("click", event => {
@@ -239,8 +280,8 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
 (function calcPOF() {
     let ratio = {
-        '1-4': 1.24,
-        '5': 1.16,
+        '1-4': ratioPOF['1-4'],
+        '5': ratioPOF['5'],
     }
     let weight_12_1000 = {
         200: 4.70,
@@ -324,7 +365,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         'width': '',
         'length': '',
         'halftubeCount': 1,
-        'cost': 235,
+        'cost': costPOF,
     };
 
     document.querySelector("#accordionPOF").addEventListener("click", event => {
@@ -520,8 +561,8 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
 (function calcPOFperf() {
     let ratio = {
-        '1-4': 1.24,
-        '5': 1.16,
+        '1-4': ratioPOFperf['1-4'],
+        '5': ratioPOFperf['5'],
     }
     let weight_12_1000 = {
         200: 4.70,
@@ -605,7 +646,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         'width': '',
         'length': '',
         'halftubeCount': 10,
-        'cost': 235,
+        'cost': costPOFperf,
     };
 
     document.querySelector("#accordionPOFperf").addEventListener("click", event => {
@@ -738,9 +779,9 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
 
 (function calcPvxLite() {
     let ratio = {
-        '1-20': 5.39,
-        '21-49': 5.06,
-        '50': 4.73,
+        '1-20': ratioPvxLite['1-20'],
+        '21-49': ratioPvxLite['21-49'],
+        '50': ratioPvxLite['50'],
     }
     let weight_15 = {
         250: 5.90,
@@ -759,7 +800,7 @@ function get_markup(shape, thickness, width, length, halftubeCount, resultKilo, 
         'width': '',
         'length': '',
         'halftubeCount': 1,
-        'cost': 68,
+        'cost': costPvxLite,
     };
 
     document.querySelector("#accordionPVXLite").addEventListener("click", event => {
