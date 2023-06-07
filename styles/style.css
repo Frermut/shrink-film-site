@@ -197,6 +197,44 @@ footer input:focus{
 }
 */
 
+.back-to-top {
+    
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 20%;
+    background: #333333;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    opacity: 100%;
+    transition: opacity 0.5s;
+    z-index: 100;
+  }
+  
+  .back-to-top:hover {
+    opacity: 100%;
+  }
+  
+  .hidden {
+    opacity: 0% !important;
+  }
+  
+  .back-to-top-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #ffffff;
+  }
+  
+  .progress-bar {
+    height: 1rem;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+
 .mobileCall:hover {
     transition: 100ms !important;
     background-color: #0a54c3 !important;

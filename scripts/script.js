@@ -528,8 +528,3 @@ document.querySelector(".formPVXLiteWrapper").addEventListener("click", event =>
 
     
 });
-
-
-
-
-

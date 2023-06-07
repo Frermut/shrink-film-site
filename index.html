@@ -12,7 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <body>  
+  <body> 
+
+      <button class="back-to-top hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="back-to-top-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
+        </svg>
+      </button>
+
     
       <nav class="navbar navbar-expand-lg pt-3 pb-3 " style="background-color: #0e0e10 !important;">
         <div class="container justify-content-end">
@@ -761,9 +768,7 @@
       
           
         </div>
-      </section> 
-
-       
+      </section>      
 
       <footer>
         <div class="container">
@@ -777,6 +782,7 @@
       <script>
         AOS.init();
       </script>
+      <script src="scripts/backToTop.js"></script>
       <script src="scripts/script.js"></script>
       <script src="scripts/toggleScript.js"></script>
       <script src="scripts/app.js"></script>
