@@ -78,31 +78,8 @@
           <h4 id="scrollspyHeading1" class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">КАЛЬКУЛЯТОР ТЕРМОУСАДНОЙ ПЛЕНКИ</h4>
     
           <nav>
-            <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-
-              <div class="btn-group d-md-flex mb-2 d-lg-none" role="group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Вид пленки
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">ПОФ</a></li>
-                  <li><a class="dropdown-item" href="#" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">ПОФ-Перфорированный</a></li>
-                  <li><a class="dropdown-item" href="#" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">ПВХ-Т</a></li>
-                  <li><a class="dropdown-item" href="#" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" role="tab" aria-controls="nav-lite" aria-selected="false" >ПВХ-Т Lite</a></li>
-                  <li><a class="dropdown-item" href="#" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"  role="tab" aria-controls="nav-contact" aria-selected="false">ПВД</a></li>
-                  <li><a class="dropdown-item" href="#" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" role="tab" aria-controls="nav-lite" aria-selected="false">БОПП</a></li>
-                </ul>
-              </div>
-
-              <div class="d-none d-lg-flex  justify-content-center gap-2 flex-wrap">
-                <button class="btn active typeOfShrinkBtn" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ПОФ</button>
-                <button class="btn typeOfShrinkBtn" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">ПОФ-Перфорированный</button>
-                <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВХ-Т</button>
-                <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false" >ПВХ-Т Lite</button>
-                <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВД</button>
-                <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false">БОПП</button>
-              </div>
-              
+            <div class="nav nav-tabs d-flex nav-type-of-shrink" id="nav-tab" role="tablist">
+              <!-- toggleScript.js -->
             </div>
           </nav>
     
@@ -112,11 +89,11 @@
             <!----------------------     ------ПОФ------     ------------------------>
             <!----------------------------------------------------------------------->
     
-            <div class="tab-pane fade show active row m-2 p-2 rounded-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="background-color: #414244;" >
+            <div class="tab-pane fade show active row m-2 p-2 rounded-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="background-color: #0e0e10;" >
         
               <div class="p-2" id="accordionPOF" >
     
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       1. Форма плёнки: <span id="resultFormPOF">&nbsp;</span>
@@ -133,7 +110,7 @@
                   </div>
                 </div>
               
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;"> 
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;"> 
                   <h2 >
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       2. Толщина пленки: <span id="resultMicronPOF"></span>
@@ -148,7 +125,7 @@
                   </div>
                 </div>
     
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       3. Ширина пленки: <span id="resultHalftubeWidthPOF"></span>
@@ -163,7 +140,7 @@
                   </div>
                 </div>
 
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       4. Длина пленки: <span id="resultHalftubeLengthPOF"></span>
@@ -182,7 +159,7 @@
                 
                 
               
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       5. Количество рулонов: <span id="resultHalftubeCountPOF"></span>
@@ -212,7 +189,7 @@
               <!-- Modal -->
               <div class="modal fade modal-lg"  id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog" >
-                  <div class="modal-content" style="background-color:#414244 !important; border-color: #414244 !important;">
+                  <div class="modal-content" style="background-color:#0e0e10 !important; border-color: #0e0e10 !important;">
                     <div class="modal-header" style="border-color: #525456 !important; color: rgba(255, 255, 255, 0.800);">
                       <h1 class="modal-title fs-5" id="staticBackdropLabel">Информация о заказе</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgba(255, 255, 255, 0.800) !important;"></button>
@@ -241,11 +218,11 @@
             <!----------------------     ------ ПОФ-Перфорированный ------     ------------------------>
             <!----------------------------------------------------------------------------------------->
     
-            <div class="tab-pane fade row m-2 p-2 rounded-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"  style="background-color: #414244;" >
+            <div class="tab-pane fade row m-2 p-2 rounded-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"  style="background-color: #0e0e10;" >
               
               <div class=" p-2" id="accordionPOFperf" >
                 
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <p style="color:rgb(255, 255, 255); text-align: center; margin:0;"><i class="bi bi-exclamation-circle"></i> Делаем перфорацию от 10 роликов.</p>
                   <h2 >
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
@@ -263,7 +240,7 @@
                   </div>
                 </div>
               
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;"> 
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;"> 
                   <h2 >
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       2. Толщина пленки: <span id="resultMicronPOFperf"></span>
@@ -278,7 +255,7 @@
                   </div>
                 </div>
 
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       3. Ширина пленки: <span id="resultHalftubeWidthPOFperf"></span>
@@ -293,7 +270,7 @@
                   </div>
                 </div>  
     
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       4. Длина пленки: <span id="resultHalftubeLengthPOFperf"></span>
@@ -310,7 +287,7 @@
     
                          
               
-                <div class="p-2" style="background-color: #414244 !important; border-color: #414244;">
+                <div class="p-2" style="background-color: #0e0e10 !important; border-color: #0e0e10;">
                   <h2>
                     <p class="fs-4" style="color: rgba(255, 255, 255, 0.800);">
                       5. Количество рулонов: <span id="resultHalftubeCountPOFperf"></span>
@@ -340,7 +317,7 @@
               <!-- Modal -->
               <div class="modal fade modal-lg"  id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
                 <div class="modal-dialog" >
-                  <div class="modal-content" style="background-color:#414244 !important; border-color: #414244 !important;">
+                  <div class="modal-content" style="background-color:#0e0e10 !important; border-color: #0e0e10 !important;">
                     <div class="modal-header" style="border-color: #525456 !important; color: rgba(255, 255, 255, 0.800);">
                       <h1 class="modal-title fs-5" id="staticBackdropLabel2">Информация о заказе</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgba(255, 255, 255, 0.800) !important;"></button>
@@ -793,7 +770,7 @@
 
       <footer>
         <div class="container">
-          <p class="text-center p-3">© 2018 - 2021, Poliolefin.com - Термоусадочная пленка</p>
+          <p class="text-center p-3">© 2018 - 2023, Poliolefin.com - Термоусадочная пленка</p>
         </div>
       </footer>
    

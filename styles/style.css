@@ -274,9 +274,9 @@ footer input:focus{
     .smallScreenSlider {
         margin-top: -25px !important;
     }
-    /* .typeOfShrinkBtn {
-        width: auto !important;
-    } */
+    .typeOfShrinkBtn {
+        width: auto;
+    }
 } 
 
 @media screen and (max-width: 576px) {
