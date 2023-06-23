@@ -78,13 +78,31 @@
           <h4 id="scrollspyHeading1" class="d-block text-center p-3" style="color:rgba(255, 255, 255, 0.800)">КАЛЬКУЛЯТОР ТЕРМОУСАДНОЙ ПЛЕНКИ</h4>
     
           <nav>
-            <div class="nav nav-tabs justify-content-center gap-2" id="nav-tab" role="tablist">
-              <button class="btn active typeOfShrinkBtn" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ПОФ</button>
-              <button class="btn typeOfShrinkBtn" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">ПОФ-Перфорированный</button>
-              <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВХ-Т</button>
-              <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false" >ПВХ-Т Lite</button>
-              <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВД</button>
-              <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false">БОПП</button>
+            <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+              <div class="btn-group d-md-flex mb-2 d-lg-none" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Вид пленки
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">ПОФ</a></li>
+                  <li><a class="dropdown-item" href="#" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">ПОФ-Перфорированный</a></li>
+                  <li><a class="dropdown-item" href="#" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">ПВХ-Т</a></li>
+                  <li><a class="dropdown-item" href="#" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" role="tab" aria-controls="nav-lite" aria-selected="false" >ПВХ-Т Lite</a></li>
+                  <li><a class="dropdown-item" href="#" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"  role="tab" aria-controls="nav-contact" aria-selected="false">ПВД</a></li>
+                  <li><a class="dropdown-item" href="#" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" role="tab" aria-controls="nav-lite" aria-selected="false">БОПП</a></li>
+                </ul>
+              </div>
+
+              <div class="d-none d-lg-flex  justify-content-center gap-2 flex-wrap">
+                <button class="btn active typeOfShrinkBtn" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ПОФ</button>
+                <button class="btn typeOfShrinkBtn" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">ПОФ-Перфорированный</button>
+                <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВХ-Т</button>
+                <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false" >ПВХ-Т Lite</button>
+                <button class="btn typeOfShrinkBtn" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ПВД</button>
+                <button class="btn typeOfShrinkBtn" id="nav-lite-tab" data-bs-toggle="tab" data-bs-target="#nav-lite" type="button" role="tab" aria-controls="nav-lite" aria-selected="false">БОПП</button>
+              </div>
+              
             </div>
           </nav>
     
